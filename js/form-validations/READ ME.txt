@@ -1,0 +1,1 @@
+front end javascript validations insert in this file and link it.
