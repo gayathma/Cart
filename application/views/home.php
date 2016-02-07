@@ -28,10 +28,12 @@
 
     <main>
       <section class="container">
-        <section class="floating-clouds">
-          <section class="cloud-1 floating-1"></section>
-          <section class="cloud-2 floating-2"></section>
-          <section class="cloud-3 floating-3"></section>
+        <section class="absolute-center-area Responsive">
+          <section class="clouds">
+            <section class="cloud-1 floating-1"></section>
+            <section class="cloud-2 floating-2"></section>
+            <section class="cloud-3 floating-3"></section>
+          </section>
           <section class="tee-user-form">
             <a href="#" class="tee-login-button" data-toggle="modal" href="javascript:void(0)" onclick="openLoginModal();">
               <p>login</p>
