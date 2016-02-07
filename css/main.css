@@ -112,6 +112,26 @@ a:hover, a.selected {
 /********************************\
             Navigation
 \********************************/
+.navbar {
+    margin-bottom: 0px;
+    /*height: 60px;*/
+    border: none;
+    border-radius: 0px;
+}
+
+.navbar-nav>li>a {
+  line-height: 30px;
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+  color: #33aaae;
+  background: none;
+}
+
+.navbar-brand {
+  height: 60px;
+}
+
 .nav-background {
   background: #fff;
   width: 100%;
@@ -133,14 +153,24 @@ a:hover, a.selected {
 }
 
 /* Nav Demo Styles -------------------- */
+.navbar-nav {
+    margin: 0px -15px 0px -15px;
+}
+
+@media (max-width: 768px) {
+    .navbar-default .navbar-collapse li {border-bottom: solid 1px #e7e7e7;}
+}
+@media (min-width: 992px) {
+  .navbar-default .navbar-collapse li {border: none}
+
+}
+@media (min-width: 1200px) {
+  .navbar-default .navbar-collapse li {border: none;}
+}
 
 .main-nav {
-  float: right;
   border-radius: 4px;
 }
-  .main-nav > li {
-    float: left;
-  }
   .main-nav li:first-child {
     border-left: none;
   }
@@ -404,26 +434,6 @@ a.nav-username {
     from {-moz-transform:translate(0, 0px);}
     65% {-moz-transform:translate(0, 15px);}
     to {-moz-transform: translate(0, -0px);}
-}
-
-.navbar {
-    margin-bottom: 0px;
-    height: 60px;
-    border: none;
-    border-radius: 0px;
-}
-
-.navbar-nav>li>a {
-  line-height: 30px;
-}
-
-.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
-  color: #33aaae;
-  background: none;
-}
-
-.navbar-brand {
-  height: 60px;
 }
 
 /********************************/

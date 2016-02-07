@@ -8,9 +8,11 @@
         <title>Shop Now Jäger Clothing</title>
 
         <!-- Bootstrap -->
-        <link href="<?php echo base_url("css/bootstrap.min.css"); ?>" rel="stylesheet">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <link href="<?php echo base_url("css/reset.css"); ?>" rel="stylesheet">
         <link href="<?php echo base_url("css/main.css"); ?>" rel="stylesheet">
+
+
 
         <link rel="stylesheet" href="<?php echo base_url("css/filter.css"); ?>">
         <link rel="stylesheet" href="<?php echo base_url("css/nav-animation.css"); ?>">
@@ -28,55 +30,77 @@
     </head>
     <body>
 
-        <!-- NAVIGATION BAR -->
-        <section class="nav-background">
-            <section class="container nav-section">
-                <a class="logo" href="<?php echo site_url(); ?>"><img src="<?php echo base_url("img/logo.png"); ?>" alt=""></a>
-                <ul class="main-nav cl-effect-1">
-                    <li><a href="<?php echo site_url() . '/shop' ?>">Shop</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Custom</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <li class="main-dropdown">
-                        <a href="<?php echo base_url(); ?>" class="nav-username">
-                            <?php
-                            if ($this->session->userdata('status')) {
-                                if ($this->session->userdata('first_name') != "") {
-                                    echo $this->session->userdata('first_name');
-                                } else {
-                                    echo $this->session->userdata('email');
-                                }
-                            } else {
-                                echo "Guest";
-                            }
-                            ?>
-                        </a> <!--maximum characters for username = 15-->
-                        <?php
-                        $this->load->model('cart_data');
-                        $cart_count = 0;
-                        $cart_class = '';
-                        if ($this->session->userdata("status")) {
-                            echo '<ul class = "drop-nav">';
-                            echo '<li><a href = "' . base_url("settings") . '">Settings<span class = "pull-right">+</span></a></li>';
-                            echo '<li><a href = "' . base_url("home/logout") . '">Logout<span class = "pull-right">+</span></a></li>';
-                            echo '</ul>';
-                            $cart_count   = $this->cart_data->getCartItems();
-                            if ($cart_count != 0) {
-                                $cart_class = 'cart-items-notification-active';
-                            } else {
-                                $cart_class = '';
-                            }
-                        } else {
+<section class="navbar navbar-default nav-background">
+  <section class="container nav-section">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <section class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="logo" href="<?php echo site_url(); ?>"><img src="<?php echo base_url("img/logo.png"); ?>" alt=""></a>
+    </section>
 
-                        }
-                        ?>
-                    </li>
-                    <span class="hi-icon-effect-1 hi-icon-effect-1a">
-                        <span id="cart" class="hi-icon hi-icon-cart "><span class="cart-items-notification <?php echo $cart_class; ?>"><?php echo $cart_count; ?></span></span>
-                    </span>
-                </ul>
-            </section>
-        </section>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <section class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right main-nav cl-effect-1">
+        <li><a href="<?php echo site_url() . '/shop' ?>">Shop</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Custom</a></li>
+        <li><a href="#">Contact</a></li>
+        <li class="main-dropdown">
+          <a href="<?php echo base_url(); ?>" class="nav-username">
+              <?php
+              if ($this->session->userdata('status')) {
+                  if ($this->session->userdata('first_name') != "") {
+                      echo $this->session->userdata('first_name');
+                  } else {
+                      echo $this->session->userdata('email');
+                  }
+              } else {
+                  echo "Guest";
+              }
+              ?>
+          </a> <!--maximum characters for username = 15-->
+          <?php
+          $this->load->model('cart_data');
+          $cart_count = 0;
+          $cart_class = '';
+          if ($this->session->userdata("status")) {
+              echo '<ul class = "drop-nav">';
+              echo '<li><a href = "' . base_url("settings") . '">Settings<span class = "pull-right">+</span></a></li>';
+              echo '<li><a href = "' . base_url("home/logout") . '">Logout<span class = "pull-right">+</span></a></li>';
+              echo '</ul>';
+              $cart_count   = $this->cart_data->getCartItems();
+              if ($cart_count != 0) {
+                  $cart_class = 'cart-items-notification-active';
+              } else {
+                  $cart_class = '';
+              }
+          } else {
+
+          }
+          ?>
+          <!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul> -->
+        </li>
+        <li>
+          <span class="hi-icon-effect-1 hi-icon-effect-1a">
+              <span id="cart" class="hi-icon hi-icon-cart "><span class="cart-items-notification <?php echo $cart_class; ?>"><?php echo $cart_count; ?></span></span>
+          </span>
+        </li>
+      </ul>
+    </section><!-- /.navbar-collapse -->
+  </section><!-- /.container-fluid -->
+</section>
 
         <div class="carousel main-carousel slide" data-ride="carousel" id="bs-carousel">
             <!-- Wrapper for slides -->
@@ -319,11 +343,12 @@
     </span><!-- /top-link-block -->
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="<?php echo base_url("js/jquery.mixitup.min.js"); ?>"></script>
-    <script src="<?php echo base_url("js/filter.js"); ?>"></script> <!-- Resource jQuery -->
+    <!-- <script src="<?php echo base_url("js/jquery.mixitup.min.js"); ?>"></script> -->
+    <!-- <script src="<?php echo base_url("js/filter.js"); ?>"></script> <!-- Resource jQuery --> -->
     <script>
             $(document).ready(function() {
                 $("#cart").click(function() {
