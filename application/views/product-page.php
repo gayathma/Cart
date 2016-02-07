@@ -39,15 +39,54 @@
                         <li><a href="#">Custom</a></li>
                         <li><a href="#">Contact</a></li>
                         <li class="main-dropdown">
-                            <a href="#" class="nav-username">Jhon Doe</a> <!--maximum characters for username = 15-->
-                            <ul class="drop-nav">
-                                <li><a href="#">Settings<span class="pull-right">+</span></a></li>
-                                <li><a href="#">Logout<span class="pull-right">+</span></a></li>
-                            </ul>
+                            <a href="<?php echo base_url(); ?>" class="nav-username">
+                                <?php
+                                if ($this->session->userdata('status')) {
+                                    if ($this->session->userdata('first_name') != "") {
+                                        echo $this->session->userdata('first_name');
+                                    } else {
+                                        echo $this->session->userdata('email');
+                                    }
+                                } else {
+                                    echo "Guest";
+                                }
+                                ?>
+                            </a> <!--maximum characters for username = 15-->
+                            <?php
+                            $cart_data  = new Cart_data();
+                            $cart_count = 0;
+                            $cart_class = '';
+                            if ($this->session->userdata("status")) {
+                                ?>
+                                <ul class = "drop-nav">
+                                    <li><a href="<?php echo site_url() . '/settings' ?>">Settings<span class = "pull-right">+</span></a></li>
+                                    <li><a href="<?php echo site_url() . '/home/logout' ?>">Logout<span class = "pull-right">+</span></a></li>
+                                </ul>
+                                <?php
+                                $cart_count = count($cart_data->getCartItems());
+                                if ($cart_count != 0) {
+                                    $cart_class = 'cart-items-notification-active';
+                                } else {
+                                    $cart_class = '';
+                                }
+                            } else {
+                                
+                            }
+                            ?>
+  <!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+  <ul class="dropdown-menu">
+    <li><a href="#">Action</a></li>
+    <li><a href="#">Another action</a></li>
+    <li><a href="#">Something else here</a></li>
+    <li role="separator" class="divider"></li>
+    <li><a href="#">Separated link</a></li>
+  </ul> -->
                         </li>
-                        <span class="hi-icon-effect-1 hi-icon-effect-1a">
-                            <span id="cart" class="hi-icon hi-icon-cart"><span class="cart-items-notification">4</span></span>
-                        </span>
+                        <li>
+                            <span class="hi-icon-effect-1 hi-icon-effect-1a">
+                                <span id="cart" class="hi-icon hi-icon-cart "><span class="cart-items-notification <?php echo $cart_class; ?>"><?php echo $cart_count; ?></span></span>
+                            </span>
+                        </li>
                     </ul>
                 </section>
             </section>
