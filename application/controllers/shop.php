@@ -8,6 +8,7 @@ class Shop extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model('item_shop');
+        $this->load->model('cart_data');
     }
 
     public function index() {

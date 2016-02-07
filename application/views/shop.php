@@ -30,77 +30,79 @@
     </head>
     <body>
 
-<section class="navbar navbar-default nav-background">
-  <section class="container nav-section">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <section class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="logo" href="<?php echo site_url(); ?>"><img src="<?php echo base_url("img/logo.png"); ?>" alt=""></a>
-    </section>
+        <section class="navbar navbar-default nav-background">
+            <section class="container nav-section">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <section class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="logo" href="<?php echo site_url(); ?>"><img src="<?php echo base_url("img/logo.png"); ?>" alt=""></a>
+                </section>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <section class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right main-nav cl-effect-1">
-        <li><a href="<?php echo site_url() . '/shop' ?>">Shop</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Custom</a></li>
-        <li><a href="#">Contact</a></li>
-        <li class="main-dropdown">
-          <a href="<?php echo base_url(); ?>" class="nav-username">
-              <?php
-              if ($this->session->userdata('status')) {
-                  if ($this->session->userdata('first_name') != "") {
-                      echo $this->session->userdata('first_name');
-                  } else {
-                      echo $this->session->userdata('email');
-                  }
-              } else {
-                  echo "Guest";
-              }
-              ?>
-          </a> <!--maximum characters for username = 15-->
-          <?php
-          $this->load->model('cart_data');
-          $cart_count = 0;
-          $cart_class = '';
-          if ($this->session->userdata("status")) {
-              echo '<ul class = "drop-nav">';
-              echo '<li><a href = "' . base_url("settings") . '">Settings<span class = "pull-right">+</span></a></li>';
-              echo '<li><a href = "' . base_url("home/logout") . '">Logout<span class = "pull-right">+</span></a></li>';
-              echo '</ul>';
-              $cart_count   = $this->cart_data->getCartItems();
-              if ($cart_count != 0) {
-                  $cart_class = 'cart-items-notification-active';
-              } else {
-                  $cart_class = '';
-              }
-          } else {
-
-          }
-          ?>
-          <!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-          </ul> -->
-        </li>
-        <li>
-          <span class="hi-icon-effect-1 hi-icon-effect-1a">
-              <span id="cart" class="hi-icon hi-icon-cart "><span class="cart-items-notification <?php echo $cart_class; ?>"><?php echo $cart_count; ?></span></span>
-          </span>
-        </li>
-      </ul>
-    </section><!-- /.navbar-collapse -->
-  </section><!-- /.container-fluid -->
-</section>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <section class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right main-nav cl-effect-1">
+                        <li><a href="<?php echo site_url() . '/shop' ?>">Shop</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Custom</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li class="main-dropdown">
+                            <a href="<?php echo base_url(); ?>" class="nav-username">
+                                <?php
+                                if ($this->session->userdata('status')) {
+                                    if ($this->session->userdata('first_name') != "") {
+                                        echo $this->session->userdata('first_name');
+                                    } else {
+                                        echo $this->session->userdata('email');
+                                    }
+                                } else {
+                                    echo "Guest";
+                                }
+                                ?>
+                            </a> <!--maximum characters for username = 15-->
+                            <?php
+                            $cart_data  = new Cart_data();
+                            $cart_count = 0;
+                            $cart_class = '';
+                            if ($this->session->userdata("status")) {
+                                ?>
+                                <ul class = "drop-nav">
+                                    <li><a href = "<?php echo site_url() . '/settings' ?>">Settings<span class = "pull-right">+</span></a></li>
+                                    <li><a href = "<?php echo site_url() . '/home/logout' ?>">Logout<span class = "pull-right">+</span></a></li>
+                                </ul>
+                                <?php
+                                $cart_count = count($cart_data->getCartItems());
+                                if ($cart_count != 0) {
+                                    $cart_class = 'cart-items-notification-active';
+                                } else {
+                                    $cart_class = '';
+                                }
+                            } else {
+                                
+                            }
+                            ?>
+  <!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+  <ul class="dropdown-menu">
+    <li><a href="#">Action</a></li>
+    <li><a href="#">Another action</a></li>
+    <li><a href="#">Something else here</a></li>
+    <li role="separator" class="divider"></li>
+    <li><a href="#">Separated link</a></li>
+  </ul> -->
+                        </li>
+                        <li>
+                            <span class="hi-icon-effect-1 hi-icon-effect-1a">
+                                <span id="cart" class="hi-icon hi-icon-cart "><span class="cart-items-notification <?php echo $cart_class; ?>"><?php echo $cart_count; ?></span></span>
+                            </span>
+                        </li>
+                    </ul>
+                </section><!-- /.navbar-collapse -->
+            </section><!-- /.container-fluid -->
+        </section>
 
         <div class="carousel main-carousel slide" data-ride="carousel" id="bs-carousel">
             <!-- Wrapper for slides -->
@@ -168,67 +170,67 @@
                         <section class="row tee-filter-content">
                             <!-- SEARCH -->
                             <section class="col-md-5">
-                            <section class="tee-search cd-filter-content">
-                                <input type="search" placeholder="Type here" class="pull-left">
-                                <button type="button" name="button" class="square-btn-blue pull-right intro-font">Look</button>
-                            </section>
+                                <section class="tee-search cd-filter-content">
+                                    <input type="search" placeholder="Type here" class="pull-left">
+                                    <button type="button" name="button" class="square-btn-blue pull-right intro-font">Look</button>
+                                </section>
                             </section>
                             <!-- DIVIDER -->
                             <section class="col-md-1"></section>
                             <!-- CHECK BOXES -->
                             <section class="col-md-1">
-                            <ul class="cd-filter-content cd-filters list">
-                                <li>
-                                    <input class="filter" data-filter=".check1" type="checkbox" id="checkbox1">
-                                    <label class="checkbox-label" for="checkbox1">Green</label>
-                                </li>
-                                <br>
-                                <li>
-                                    <input class="filter" data-filter=".check2" type="checkbox" id="checkbox2">
-                                    <label class="checkbox-label" for="checkbox2">Black</label>
-                                </li>
-                            </ul>
+                                <ul class="cd-filter-content cd-filters list">
+                                    <li>
+                                        <input class="filter" data-filter=".check1" type="checkbox" id="checkbox1">
+                                        <label class="checkbox-label" for="checkbox1">Green</label>
+                                    </li>
+                                    <br>
+                                    <li>
+                                        <input class="filter" data-filter=".check2" type="checkbox" id="checkbox2">
+                                        <label class="checkbox-label" for="checkbox2">Black</label>
+                                    </li>
+                                </ul>
                             </section>
                             <section class="col-md-1">
-                            <ul class="cd-filter-content cd-filters list">
-                                <li>
-                                    <input class="filter" data-filter=".check3" type="checkbox" id="checkbox3">
-                                    <label class="checkbox-label" for="checkbox3">Red</label>
-                                </li>
-                                <br>
-                                <li>
-                                    <input class="filter" data-filter=".check4" type="checkbox" id="checkbox4">
-                                    <label class="checkbox-label" for="checkbox4">White</label>
-                                </li>
-                            </ul>
+                                <ul class="cd-filter-content cd-filters list">
+                                    <li>
+                                        <input class="filter" data-filter=".check3" type="checkbox" id="checkbox3">
+                                        <label class="checkbox-label" for="checkbox3">Red</label>
+                                    </li>
+                                    <br>
+                                    <li>
+                                        <input class="filter" data-filter=".check4" type="checkbox" id="checkbox4">
+                                        <label class="checkbox-label" for="checkbox4">White</label>
+                                    </li>
+                                </ul>
                             </section>
                             <section class="col-md-1">
-                            <ul class="cd-filter-content cd-filters list">
-                                <li>
-                                    <input class="filter" data-filter=".check5" type="checkbox" id="checkbox5">
-                                    <label class="checkbox-label" for="checkbox5">Color</label>
-                                </li>
-                                <br>
-                                <li>
-                                    <input class="filter" data-filter=".check6" type="checkbox" id="checkbox6">
-                                    <label class="checkbox-label" for="checkbox6">Color</label>
-                                </li>
-                            </ul>
+                                <ul class="cd-filter-content cd-filters list">
+                                    <li>
+                                        <input class="filter" data-filter=".check5" type="checkbox" id="checkbox5">
+                                        <label class="checkbox-label" for="checkbox5">Color</label>
+                                    </li>
+                                    <br>
+                                    <li>
+                                        <input class="filter" data-filter=".check6" type="checkbox" id="checkbox6">
+                                        <label class="checkbox-label" for="checkbox6">Color</label>
+                                    </li>
+                                </ul>
                             </section>
                             <!-- DIVIDER -->
                             <section class="col-md-1"></section>
                             <section class="col-md-1">
-                            <ul class="cd-filter-content cd-filters list">
-                                <li>
-                                    <input class="filter" data-filter=".check7" type="checkbox" id="checkbox7">
-                                    <label class="checkbox-label" for="checkbox7">Guys</label>
-                                </li>
-                                <br>
-                                <li>
-                                    <input class="filter" data-filter=".check8" type="checkbox" id="checkbox8">
-                                    <label class="checkbox-label" for="checkbox8">Girls</label>
-                                </li>
-                            </ul>
+                                <ul class="cd-filter-content cd-filters list">
+                                    <li>
+                                        <input class="filter" data-filter=".check7" type="checkbox" id="checkbox7">
+                                        <label class="checkbox-label" for="checkbox7">Guys</label>
+                                    </li>
+                                    <br>
+                                    <li>
+                                        <input class="filter" data-filter=".check8" type="checkbox" id="checkbox8">
+                                        <label class="checkbox-label" for="checkbox8">Girls</label>
+                                    </li>
+                                </ul>
                             </section>
                         </section>
                     </section>
@@ -238,52 +240,52 @@
 
         <section class="container">
             <!-- <section class="row"> -->
-                <section class="cd-gallery">
-                    <div class="cd-fail-message">No results found</div>
-                    <ul>
-                        <?php
-                        foreach ($items as $i) {
-                            $title      = $i['ItemTitle'];
-                            $trimTitle  = trim($title);
-                            $finalTitle = str_replace(" ", "-", $trimTitle);
-                            $itemColor  = strtolower($i['ItemType']);
-                            $type       = "";
-                            if ($itemColor == 'green') {
-                                $type = "check1";
-                            } else if ($itemColor == 'black') {
-                                $type = "check2";
-                            } else if ($itemColor == 'red') {
-                                $type = "check3";
-                            } else if ($itemColor == 'white') {
-                                $type = "check4";
-                            }
-                            echo '<li class="mix color-1 ' . $type . ' radio2 option3 cd-item">';
-                            echo '<a href="' . site_url() . "/shop/buy/" . $i['ItemID'] . "/" . $finalTitle . "" . '"><img src="' . base_url($i['ItemImg']) . '" alt="Image 1" class="thumb img-responsive"><div class="price"></a>';
-                            echo '<section class="tee-sum">';
-                            echo '<span style="width:100%; display:block;"><a href="' . site_url() . "/shop/buy/" . $i['ItemID'] . "/" . $finalTitle . "" . '">T-shirt title goes here....</a></span>';
-                            echo '<span class="pull-left">';
-                            echo '<span class="pull-left"><span>Rs. ' . $i['ItemPrice'] . '</span></span>';
-                            // echo '<fieldset class="tee-rating">';
-                            // echo '<input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>';
-                            // echo '<input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>';
-                            // echo '<input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>';
-                            // echo '<input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>';
-                            // echo '<input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>';
-                            // echo '</fieldset>';
-                            echo '</span>';
-                            echo '<a href="#" id="' . $i['ItemID'] . '" class="items"><span class="pull-right"><img src="' . base_url("img/heart-icon.png") . '" alt="" data-toggle="tooltip" data-placement="bottom" title="12"></span></a>';
-                            echo '</section>';
-                            echo '</li>';
-                            // echo '<li class="gap"></li>';
-                            // echo '<li class="gap"></li>';
-                            // echo '<li class="gap"></li>';
+            <section class="cd-gallery">
+                <div class="cd-fail-message">No results found</div>
+                <ul>
+                    <?php
+                    foreach ($items as $i) {
+                        $title      = $i['ItemTitle'];
+                        $trimTitle  = trim($title);
+                        $finalTitle = str_replace(" ", "-", $trimTitle);
+                        $itemColor  = strtolower($i['ItemType']);
+                        $type       = "";
+                        if ($itemColor == 'green') {
+                            $type = "check1";
+                        } else if ($itemColor == 'black') {
+                            $type = "check2";
+                        } else if ($itemColor == 'red') {
+                            $type = "check3";
+                        } else if ($itemColor == 'white') {
+                            $type = "check4";
                         }
-                        ?>
-                        <!-- <li class="gap"></li>
-                        <li class="gap"></li>
-                        <li class="gap"></li> -->
-                    </ul>
-                </section>
+                        echo '<li class="mix color-1 ' . $type . ' radio2 option3 cd-item">';
+                        echo '<a href="' . site_url() . "/shop/buy/" . $i['ItemID'] . "/" . $finalTitle . "" . '"><img src="' . base_url($i['ItemImg']) . '" alt="Image 1" class="thumb img-responsive"><div class="price"></a>';
+                        echo '<section class="tee-sum">';
+                        echo '<span style="width:100%; display:block;"><a href="' . site_url() . "/shop/buy/" . $i['ItemID'] . "/" . $finalTitle . "" . '">'.$i['ItemName'] .'</a></span>';
+                        echo '<span class="pull-left">';
+                        echo '<span class="pull-left"><span>Rs. ' . $i['ItemPrice'] . '</span></span>';
+                        // echo '<fieldset class="tee-rating">';
+                        // echo '<input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>';
+                        // echo '<input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>';
+                        // echo '<input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>';
+                        // echo '<input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>';
+                        // echo '<input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>';
+                        // echo '</fieldset>';
+                        echo '</span>';
+                        echo '<a href="#" id="' . $i['ItemID'] . '" class="items"><span class="pull-right"><img src="' . base_url("img/heart-icon.png") . '" alt="" data-toggle="tooltip" data-placement="bottom" title="12"></span></a>';
+                        echo '</section>';
+                        echo '</li>';
+                        // echo '<li class="gap"></li>';
+                        // echo '<li class="gap"></li>';
+                        // echo '<li class="gap"></li>';
+                    }
+                    ?>
+                    <!-- <li class="gap"></li>
+                    <li class="gap"></li>
+                    <li class="gap"></li> -->
+                </ul>
+            </section>
             <!-- </section> -->
         </section>
 
@@ -337,7 +339,7 @@
 
     <span id="top-link-block" class="hidden go-top">
         <a href="#top" onclick="$('html,body').animate({scrollTop: 0}, 'slow');
-                    return false;">
+                return false;">
             <i class="glyphicon glyphicon-chevron-up"></i>
         </a>
     </span><!-- /top-link-block -->
@@ -352,7 +354,7 @@
     <script>
             $(document).ready(function() {
                 $("#cart").click(function() {
-                    window.location.href = "<?php echo base_url("cart"); ?>"; // in everypage use this to link to shopping cart. cannot directly link because no anchor tag.
+                    window.location.href = "<?php echo site_url().'/cart'; ?>"; // in everypage use this to link to shopping cart. cannot directly link because no anchor tag.
 
                 });
                 $('[data-toggle="tooltip"]').tooltip();
@@ -369,7 +371,7 @@
                     $.ajax({
                         type: "POST",
                         dataType: "text",
-                        url: "http://localhost/dropbox/thulara/cart/addItemFast", //Relative or absolute path to response.php file
+                        url: site_url+"/cart/addItemFast", //Relative or absolute path to response.php file
                         data: {iid: id},
                         success: function(data) {
                             if (data == 'added') {
