@@ -37,7 +37,7 @@
               <p>login</p>
             </a>
             <img src="<?php echo base_url("img/home-tee.png")?>" alt="" class="img-responsive">
-            <a href="<?php echo base_url("shop")?>" class="tee-guest-button">
+            <a href="<?php echo site_url().'/shop'?>" class="tee-guest-button">
               <p>guest</p>
             </a>
           </section>

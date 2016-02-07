@@ -32,9 +32,9 @@
             <!-- NAVIGATION BAR -->
             <section class="nav-background">
                 <section class="container nav-section">
-                    <a class="logo" href="#"><img src="<?php echo base_url("img/logo.png"); ?>" alt=""></a>
+                    <a class="logo" href="<?php echo site_url();?>"><img src="<?php echo base_url("img/logo.png"); ?>" alt=""></a>
                     <ul class="main-nav cl-effect-1">
-                        <li><a href="#">Shop</a></li>
+                        <li><a href="<?php echo site_url().'/shop'?>">Shop</a></li>
                         <li><a href="#">About</a></li>
                         <li><a href="#">Custom</a></li>
                         <li><a href="#">Contact</a></li>
@@ -58,8 +58,8 @@
                 <section class="row">
                     <section class="col-md-12 tee-tabs-top">
                         <ol class="breadcrumb">
-                            <li><a href="#"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
-                            <li><a href="#">Shop</a></li>
+                            <li><a href="<?php echo site_url().'/home'?>"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
+                            <li><a href="<?php echo site_url().'/shop'?>">Shop</a></li>
                             <li class="active">Data</li>
                         </ol>
                         <span><h3><?php echo $item['ItemName'] ?></h3></span>
@@ -149,31 +149,27 @@
 
                                 <!-- Carousel items -->
                                 <div class="carousel-inner">
-                                    <div class="item active">
+                                    <div class="item ">
                                         <div class="row">
                                             <?php
+                                            $i = 0;
+                                            $cls = "";
                                             foreach ($itemByType as $it) {
+                                                ++$i;
+                                                if( $i == 1){
+                                                   $cls =  "active";
+                                                }else{
+                                                    $cls = "";
+                                                }
                                                 $title = $it['ItemTitle'];
                                                 $itemID = $it['ItemID'];
                                                 $trimTitle = trim($title);
                                                 $finalTitle = str_replace(" ", "-", $trimTitle);
-                                                echo '<div class = "col-md-2"><a href = "'.  base_url('shop/buy/'.$itemID.'/'.$finalTitle).'" class = "thumbnail"><img src = "' .  base_url($it['ItemImg']). '" alt = "Image" style = "max-width:100%;" class = "img-responsive"/></a></div>';
+                                                echo '<div class = "col-md-2 '.$cls.'"><a href = "'.  base_url('shop/buy/'.$itemID.'/'.$finalTitle).'" class = "thumbnail"><img src = "' .  base_url($it['ItemImg']). '" alt = "Image" style = "max-width:100%;" class = "img-responsive"/></a></div>';
                                             }
                                             ?>
                                         </div><!--/row-fluid-->
                                     </div><!--/item-->
-
-                                    <div class="item">
-                                        <div class="row">
-                                            <div class="col-md-2"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;" class="img-responsive"/></a></div>
-                                            <div class="col-md-2"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;" class="img-responsive"/></a></div>
-                                            <div class="col-md-2"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;" class="img-responsive"/></a></div>
-                                            <div class="col-md-2"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;" class="img-responsive"/></a></div>
-                                            <div class="col-md-2"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;" class="img-responsive"/></a></div>
-                                            <div class="col-md-2"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;" class="img-responsive"/></a></div>
-                                        </div><!--/row-fluid-->
-                                    </div><!--/item-->
-
                                 </div><!--/carousel-inner-->
 
                                 <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>

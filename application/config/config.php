@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://localhost/dropbox/thulara';
+$config['base_url']	= 'http://localhost/cart';
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +26,7 @@ $config['base_url']	= 'http://localhost/dropbox/thulara';
 | variable so that it is blank.
 |
 */
-$config['index_page'] = "";
+$config['index_page'] = "index.php";
 
 /*
 |--------------------------------------------------------------------------

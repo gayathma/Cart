@@ -34,9 +34,9 @@
   <!-- NAVIGATION BAR -->
   <section class="nav-background">
     <section class="container nav-section">
-      <a class="logo" href="#"><img src="img/logo.png" alt=""></a>
+      <a class="logo" href="<?php echo site_url();?>"><img src="img/logo.png" alt=""></a>
       <ul class="main-nav cl-effect-1">
-         <li><a href="#">Shop</a></li>
+         <li><a href="<?php echo site_url().'/shop'?>">Shop</a></li>
          <li><a href="#">About</a></li>
          <li><a href="#">Custom</a></li>
          <li><a href="#">Contact</a></li>
@@ -61,7 +61,7 @@
       <section class="col-md-12 tee-tabs-top">
         <ol class="breadcrumb">
           <li><a href="#"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
-          <li><a href="#">Shop</a></li>
+          <li><a href="<?php echo site_url().'/shop'?>">Shop</a></li>
           <li class="active">Order</li>
         </ol>
         <span><h3>Request your own Tee</h3></span>

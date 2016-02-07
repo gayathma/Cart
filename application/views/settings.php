@@ -33,9 +33,9 @@
             <!-- NAVIGATION BAR -->
             <section class="nav-background">
                 <section class="container nav-section">
-                    <a class="logo" href="#"><img src="<?php echo base_url("img/logo.png"); ?>" alt=""></a>
+                    <a class="logo" href="<?php echo site_url();?>"><img src="<?php echo base_url("img/logo.png"); ?>" alt=""></a>
                     <ul class="main-nav cl-effect-1">
-                        <li><a href="#">Shop</a></li>
+                        <li><a href="<?php echo site_url().'/shop'?>">Shop</a></li>
                         <li><a href="#">About</a></li>
                         <li><a href="#">Custom</a></li>
                         <li><a href="#">Contact</a></li>
