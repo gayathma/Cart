@@ -67,7 +67,7 @@
                                 $cart_class = '';
                             }
                         } else {
-                            
+
                         }
                         ?>
                     </li>
@@ -125,50 +125,86 @@
                 <section class="row">
                     <section class="tee-filter">
                         <section class="row tee-filter-heading">
-                            <section class="col-md-8">
+                            <section class="col-md-6">
                                 <span>
                                     Search
                                 </span>
                             </section>
                             <section class="col-md-4">
                                 <span>
-                                    Sizes
+                                    Colors
+                                </span>
+                            </section>
+                            <section class="col-md-1">
+                                <span>
+                                    Type
                                 </span>
                             </section>
                         </section>
                         <section class="row tee-filter-content">
-                            <section class="col-md-7">
-                                <section class="tee-search cd-filter-content">
-                                    <input type="search" placeholder="Type here" class="pull-left">
-                                    <button type="button" name="button" class="square-btn-blue pull-right intro-font">Look</button>
-                                </section>
+                            <!-- SEARCH -->
+                            <section class="col-md-5">
+                            <section class="tee-search cd-filter-content">
+                                <input type="search" placeholder="Type here" class="pull-left">
+                                <button type="button" name="button" class="square-btn-blue pull-right intro-font">Look</button>
                             </section>
+                            </section>
+                            <!-- DIVIDER -->
                             <section class="col-md-1"></section>
-                            <section class="col-md-2">
-                                <ul class="cd-filter-content cd-filters list">
-                                    <li>
-                                        <input class="filter" data-filter=".check1" type="checkbox" id="checkbox1">
-                                        <label class="checkbox-label" for="checkbox1">Green</label>
-                                    </li>
-                                    <br>
-                                    <li>
-                                        <input class="filter" data-filter=".check2" type="checkbox" id="checkbox2">
-                                        <label class="checkbox-label" for="checkbox2">Black</label>
-                                    </li>
-                                </ul>
+                            <!-- CHECK BOXES -->
+                            <section class="col-md-1">
+                            <ul class="cd-filter-content cd-filters list">
+                                <li>
+                                    <input class="filter" data-filter=".check1" type="checkbox" id="checkbox1">
+                                    <label class="checkbox-label" for="checkbox1">Green</label>
+                                </li>
+                                <br>
+                                <li>
+                                    <input class="filter" data-filter=".check2" type="checkbox" id="checkbox2">
+                                    <label class="checkbox-label" for="checkbox2">Black</label>
+                                </li>
+                            </ul>
                             </section>
-                            <section class="col-md-2">
-                                <ul class="cd-filter-content cd-filters list">
-                                    <li>
-                                        <input class="filter" data-filter=".check3" type="checkbox" id="checkbox3">
-                                        <label class="checkbox-label" for="checkbox3">Red</label>
-                                    </li>
-                                    <br>
-                                    <li>
-                                        <input class="filter" data-filter=".check4" type="checkbox" id="checkbox4">
-                                        <label class="checkbox-label" for="checkbox4">White</label>
-                                    </li>
-                                </ul>
+                            <section class="col-md-1">
+                            <ul class="cd-filter-content cd-filters list">
+                                <li>
+                                    <input class="filter" data-filter=".check3" type="checkbox" id="checkbox3">
+                                    <label class="checkbox-label" for="checkbox3">Red</label>
+                                </li>
+                                <br>
+                                <li>
+                                    <input class="filter" data-filter=".check4" type="checkbox" id="checkbox4">
+                                    <label class="checkbox-label" for="checkbox4">White</label>
+                                </li>
+                            </ul>
+                            </section>
+                            <section class="col-md-1">
+                            <ul class="cd-filter-content cd-filters list">
+                                <li>
+                                    <input class="filter" data-filter=".check5" type="checkbox" id="checkbox5">
+                                    <label class="checkbox-label" for="checkbox5">Color</label>
+                                </li>
+                                <br>
+                                <li>
+                                    <input class="filter" data-filter=".check6" type="checkbox" id="checkbox6">
+                                    <label class="checkbox-label" for="checkbox6">Color</label>
+                                </li>
+                            </ul>
+                            </section>
+                            <!-- DIVIDER -->
+                            <section class="col-md-1"></section>
+                            <section class="col-md-1">
+                            <ul class="cd-filter-content cd-filters list">
+                                <li>
+                                    <input class="filter" data-filter=".check7" type="checkbox" id="checkbox7">
+                                    <label class="checkbox-label" for="checkbox7">Guys</label>
+                                </li>
+                                <br>
+                                <li>
+                                    <input class="filter" data-filter=".check8" type="checkbox" id="checkbox8">
+                                    <label class="checkbox-label" for="checkbox8">Girls</label>
+                                </li>
+                            </ul>
                             </section>
                         </section>
                     </section>
@@ -177,7 +213,7 @@
         </section>
 
         <section class="container">
-            <section class="row">
+            <!-- <section class="row"> -->
                 <section class="cd-gallery">
                     <div class="cd-fail-message">No results found</div>
                     <ul>
@@ -198,29 +234,33 @@
                                 $type = "check4";
                             }
                             echo '<li class="mix color-1 ' . $type . ' radio2 option3 cd-item">';
-                            echo '<a href="' . site_url() . "/shop/buy/" . $i['ItemID'] . "/" . $finalTitle . "" . '"><img src="' . base_url($i['ItemImg']) . '" alt="Image 1" class="thumb img-responsive"><div class="price"><h4>' . $i['ItemPrice'] . ' LKR </h4></a>';
+                            echo '<a href="' . site_url() . "/shop/buy/" . $i['ItemID'] . "/" . $finalTitle . "" . '"><img src="' . base_url($i['ItemImg']) . '" alt="Image 1" class="thumb img-responsive"><div class="price"></a>';
                             echo '<section class="tee-sum">';
+                            echo '<span style="width:100%; display:block;"><a href="#">T-shirt title goes here....</a></span>';
                             echo '<span class="pull-left">';
-                            echo '<span class="pull-left">Rating :</span>';
-                            echo '<fieldset class="tee-rating">';
-                            echo '<input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>';
-                            echo '<input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>';
-                            echo '<input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>';
-                            echo '<input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>';
-                            echo '<input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>';
-                            echo '</fieldset>';
+                            echo '<span class="pull-left"><span>Rs. ' . $i['ItemPrice'] . '</span></span>';
+                            // echo '<fieldset class="tee-rating">';
+                            // echo '<input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>';
+                            // echo '<input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>';
+                            // echo '<input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>';
+                            // echo '<input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>';
+                            // echo '<input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>';
+                            // echo '</fieldset>';
                             echo '</span>';
-                            echo '<a href="#" id="' . $i['ItemID'] . '" class="items"><span class="pull-right"><img src="' . base_url("img/cart-icon.png") . '" alt="" data-toggle="tooltip" data-placement="bottom" title="Add to Cart"></span></a>';
+                            echo '<a href="#" id="' . $i['ItemID'] . '" class="items"><span class="pull-right"><img src="' . base_url("img/heart-icon.png") . '" alt="" data-toggle="tooltip" data-placement="bottom" title="12"></span></a>';
                             echo '</section>';
                             echo '</li>';
+                            // echo '<li class="gap"></li>';
+                            // echo '<li class="gap"></li>';
+                            // echo '<li class="gap"></li>';
                         }
                         ?>
+                        <!-- <li class="gap"></li>
                         <li class="gap"></li>
-                        <li class="gap"></li>
-                        <li class="gap"></li>
+                        <li class="gap"></li> -->
                     </ul>
                 </section>
-            </section>
+            <!-- </section> -->
         </section>
 
         <section class="container">
