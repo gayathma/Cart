@@ -82,7 +82,7 @@
                                     $cart_class = '';
                                 }
                             } else {
-                                
+
                             }
                             ?>
   <!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
@@ -111,8 +111,8 @@
                     <div class="slide-1"></div>
                     <div class="carousel-text text-center">
                         <hgroup>
-                            <h3 class="special-text">Bienvenue</h3>
-                            <h1>Keep Calm & Buy <span>Awesome Teez</span></h1>
+                            <h3 class="special-text" id="responsive-sub-heading">Bienvenue</h3>
+                            <h1 id="responsive-heading">Keep Calm & Buy <span>Awesome Teez</span></h1>
                         </hgroup>
                     </div>
                 </div>
@@ -135,7 +135,7 @@
     <main class="cd-main-content">
         <div class="cd-tab-filter-wrapper">
             <div class="cd-tab-filter">
-                <ul class="cd-filters">
+                <ul class="col-xs-12 cd-filters">
                     <li class="placeholder">
                         <a data-type="all" href="#0">All</a> <!-- selected option on mobile -->
                     </li>
@@ -148,9 +148,96 @@
 
         <section class="container-fluid tee-filter-fluid">
             <section class="container">
-                <section class="row">
-                    <section class="tee-filter">
-                        <section class="row tee-filter-heading">
+                <section class="row tee-filter">
+                  <!-- SEARCH -->
+                  <section class="col-md-6">
+                    <section class="row space">
+                      <section class="col-md-12">
+                        <span>Search</span>
+                      </section>
+                    </section>
+                    <section class="row space">
+                      <section class="col-md-12">
+                        <section class="tee-search cd-filter-content">
+                            <input type="search" placeholder="Type here" class="pull-left">
+                            <button type="button" name="button" class="square-btn-blue pull-right intro-font">Look</button>
+                        </section>
+                      </section>
+                    </section>
+                  </section>
+                  <!-- COLORS -->
+                  <section class="col-md-4">
+                    <section class="row space">
+                      <section class="col-md-12">
+                        <span>Color</span>
+                      </section>
+                    </section>
+                    <section class="row tee-filter-content space">
+                      <section class="col-xs-4 col-md-4">
+                          <ul class="cd-filter-content cd-filters list">
+                              <li>
+                                  <input class="filter" data-filter=".check1" type="checkbox" id="checkbox1">
+                                  <label class="checkbox-label" for="checkbox1">Green</label>
+                              </li>
+                              <br>
+                              <li>
+                                  <input class="filter" data-filter=".check2" type="checkbox" id="checkbox2">
+                                  <label class="checkbox-label" for="checkbox2">Black</label>
+                              </li>
+                          </ul>
+                      </section>
+                      <section class="col-xs-4 col-md-4">
+                          <ul class="cd-filter-content cd-filters list">
+                              <li>
+                                  <input class="filter" data-filter=".check3" type="checkbox" id="checkbox3">
+                                  <label class="checkbox-label" for="checkbox3">Red</label>
+                              </li>
+                              <br>
+                              <li>
+                                  <input class="filter" data-filter=".check4" type="checkbox" id="checkbox4">
+                                  <label class="checkbox-label" for="checkbox4">White</label>
+                              </li>
+                          </ul>
+                      </section>
+                      <section class="col-xs-4 col-md-4">
+                          <ul class="cd-filter-content cd-filters list">
+                              <li>
+                                  <input class="filter" data-filter=".check5" type="checkbox" id="checkbox5">
+                                  <label class="checkbox-label" for="checkbox5">Color</label>
+                              </li>
+                              <br>
+                              <li>
+                                  <input class="filter" data-filter=".check6" type="checkbox" id="checkbox6">
+                                  <label class="checkbox-label" for="checkbox6">Color</label>
+                              </li>
+                          </ul>
+                      </section>
+                    </section>
+                  </section>
+                  <!-- TYPE -->
+                  <section class="col-md-2">
+                    <section class="row space">
+                      <section class="col-md-12">
+                        <span>Type</span>
+                      </section>
+                    </section>
+                    <section class="row tee-filter-content space">
+                      <section class="col-md-12">
+                          <ul class="cd-filter-content cd-filters list">
+                              <li>
+                                  <input class="filter" data-filter=".check7" type="checkbox" id="checkbox7">
+                                  <label class="checkbox-label" for="checkbox7">Guys</label>
+                              </li>
+                              <br>
+                              <li>
+                                  <input class="filter" data-filter=".check8" type="checkbox" id="checkbox8">
+                                  <label class="checkbox-label" for="checkbox8">Girls</label>
+                              </li>
+                          </ul>
+                      </section>
+                    </section>
+                  </section>
+                        <!-- <section class="row tee-filter-heading">
                             <section class="col-md-6">
                                 <span>
                                     Search
@@ -166,19 +253,19 @@
                                     Type
                                 </span>
                             </section>
-                        </section>
+                        </section> -->
                         <section class="row tee-filter-content">
                             <!-- SEARCH -->
-                            <section class="col-md-5">
+                            <!-- <section class="col-md-5">
                                 <section class="tee-search cd-filter-content">
                                     <input type="search" placeholder="Type here" class="pull-left">
                                     <button type="button" name="button" class="square-btn-blue pull-right intro-font">Look</button>
                                 </section>
-                            </section>
+                            </section> -->
                             <!-- DIVIDER -->
                             <section class="col-md-1"></section>
                             <!-- CHECK BOXES -->
-                            <section class="col-md-1">
+                            <!-- <section class="col-md-1">
                                 <ul class="cd-filter-content cd-filters list">
                                     <li>
                                         <input class="filter" data-filter=".check1" type="checkbox" id="checkbox1">
@@ -216,10 +303,10 @@
                                         <label class="checkbox-label" for="checkbox6">Color</label>
                                     </li>
                                 </ul>
-                            </section>
+                            </section> -->
                             <!-- DIVIDER -->
-                            <section class="col-md-1"></section>
-                            <section class="col-md-1">
+                            <!-- <section class="col-md-1"></section> -->
+                            <!-- <section class="col-md-1">
                                 <ul class="cd-filter-content cd-filters list">
                                     <li>
                                         <input class="filter" data-filter=".check7" type="checkbox" id="checkbox7">
@@ -231,9 +318,8 @@
                                         <label class="checkbox-label" for="checkbox8">Girls</label>
                                     </li>
                                 </ul>
-                            </section>
+                            </section> -->
                         </section>
-                    </section>
                 </section>
             </section>
         </section>
@@ -351,7 +437,10 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="<?php echo base_url("js/jquery.mixitup.min.js"); ?>"></script>
     <script src="<?php echo base_url("js/filter.js"); ?>"></script> <!-- Resource jQuery -->
+    <script src="<?php echo base_url("js/jquery.fittext.js"); ?>"></script>
     <script>
+            $("#responsive-heading").fitText(1.1, { minFontSize: '40px', maxFontSize: '60px' });
+            $("#responsive-sub-heading").fitText(1.1, { minFontSize: '40px', maxFontSize: '75px' });
             $(document).ready(function() {
                 $("#cart").click(function() {
                     window.location.href = "<?php echo site_url().'/cart'; ?>"; // in everypage use this to link to shopping cart. cannot directly link because no anchor tag.

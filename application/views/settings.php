@@ -31,27 +31,51 @@
 
         <header class="teez">
             <!-- NAVIGATION BAR -->
-            <section class="nav-background">
+            <section class="navbar navbar-default nav-background">
                 <section class="container nav-section">
-                    <a class="logo" href="<?php echo site_url(); ?>"><img src="<?php echo base_url("img/logo.png"); ?>" alt=""></a>
-                    <ul class="main-nav cl-effect-1">
-                        <li><a href="<?php echo site_url() . '/shop' ?>">Shop</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Custom</a></li>
-                        <li><a href="#">Contact</a></li>
-                        <li class="main-dropdown">
-                            <a href="#" class="nav-username">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <section class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="logo" href="<?php echo site_url(); ?>"><img src="<?php echo base_url("img/logo.png"); ?>" alt=""></a>
+                    </section>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <section class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right main-nav cl-effect-1">
+                            <li><a href="<?php echo site_url() . '/shop' ?>">Shop</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Custom</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li class="main-dropdown">
+                                <a href="<?php echo base_url(); ?>" class="nav-username">
+                                    <?php
+                                    if ($this->session->userdata('status')) {
+                                        if ($this->session->userdata('first_name') != "") {
+                                            echo $this->session->userdata('first_name');
+                                        } else {
+                                            echo $this->session->userdata('email');
+                                        }
+                                    } else {
+                                        echo "Guest";
+                                    }
+                                    ?>
+                                </a> <!--maximum characters for username = 15-->
                                 <?php
                                 $cart_data  = new Cart_data();
                                 $cart_count = 0;
                                 $cart_class = '';
-                                if ($this->session->userdata('status')) {
-                                    if ($this->session->userdata('first_name') != "") {
-                                        echo $this->session->userdata('first_name');
-                                    } else {
-                                        echo $this->session->userdata('email');
-                                    }
-
+                                if ($this->session->userdata("status")) {
+                                    ?>
+                                    <ul class = "drop-nav">
+                                        <li><a href = "<?php echo site_url() . '/settings' ?>">Settings<span class = "pull-right">+</span></a></li>
+                                        <li><a href = "<?php echo site_url() . '/home/logout' ?>">Logout<span class = "pull-right">+</span></a></li>
+                                    </ul>
+                                    <?php
                                     $cart_count = count($cart_data->getCartItems());
                                     if ($cart_count != 0) {
                                         $cart_class = 'cart-items-notification-active';
@@ -59,28 +83,26 @@
                                         $cart_class = '';
                                     }
                                 } else {
-                                    echo "Guest";
+
                                 }
                                 ?>
-                            </a> <!--maximum characters for username = 15-->
-                            <?php
-                            if ($this->session->userdata("first_name") == "") {
-                                
-                            } else {
-                                ?>
-                                <ul class = "drop-nav">
-                                    <li><a href = "<?php echo site_url() . '/settings' ?>">Settings<span class = "pull-right">+</span></a></li>
-                                    <li><a href = "<?php echo site_url() . '/home/logout' ?>">Logout<span class = "pull-right">+</span></a></li>
-                                </ul>
-                                <?php
-                            }
-                            ?>
-                        </li>
-                        <span class="hi-icon-effect-1 hi-icon-effect-1a">
-                            <span id="cart" class="hi-icon hi-icon-cart "><span class="cart-items-notification <?php echo $cart_class; ?>"><?php echo $cart_count; ?></span></span>
-                        </span>
-                    </ul>
-                </section>
+      <!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li><a href="#">Action</a></li>
+        <li><a href="#">Another action</a></li>
+        <li><a href="#">Something else here</a></li>
+        <li role="separator" class="divider"></li>
+        <li><a href="#">Separated link</a></li>
+      </ul> -->
+                            </li>
+                            <li>
+                                <span class="hi-icon-effect-1 hi-icon-effect-1a">
+                                    <span id="cart" class="hi-icon hi-icon-cart "><span class="cart-items-notification <?php echo $cart_class; ?>"><?php echo $cart_count; ?></span></span>
+                                </span>
+                            </li>
+                        </ul>
+                    </section><!-- /.navbar-collapse -->
+                </section><!-- /.container-fluid -->
             </section>
         </header>
 

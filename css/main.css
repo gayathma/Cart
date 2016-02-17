@@ -216,9 +216,10 @@ a:hover, a.selected {
 }
 a.nav-username {
   width: 200px;
-  color: #33aaae;
-  background: #1d1d1d;
+  color: #33aaae !important;
+  background: #1d1d1d !important;
 }
+
 .main-dropdown:hover > .drop-nav {
   display: block;
 }
@@ -452,7 +453,7 @@ a.nav-username {
 /********************************/
 .special-text {
   font-family: 'Pacifico', cursive;
-  font-size: 50px !important;
+  /*font-size: 4em !important;*/
   font-weight: 100 !important;
   text-transform: none;
 }
@@ -469,14 +470,14 @@ a.nav-username {
     text-shadow: 0px 1px 2px rgba(0,0,0,.75);
 }
 .carousel-text h1 {
-    font-size: 4em;
+    /*font-size: 4em;*/
     font-weight: bold;
     margin: 0;
     padding: 0;
 }
 
 .carousel-text h3 {
-    font-size: 2em;
+    /*font-size: 2em;*/
     font-weight: bold;
     margin: 0;
     padding: 0;
@@ -495,7 +496,7 @@ a.nav-username {
 
 .tee-filter-fluid {
   margin: 50px 0px;
-  height: 220px;
+  height: auto;
   width: 100%;
   background-color: #1d1d1d;
 }
@@ -505,7 +506,7 @@ a.nav-username {
 }
 
 .tee-filter {
-    margin-top: 50px;
+    margin: 50px 0px;
 }
 
 .tee-filter span {
@@ -513,8 +514,8 @@ a.nav-username {
   font-weight: 600;
 }
 
-.tee-filter .tee-search {
-  margin-top: 10px;
+.tee-filter .space {
+  margin: 20px 0px;
 }
 
 .tee-filter input[type="search"], .tee-filter input[type="text"]:focus{

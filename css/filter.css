@@ -118,7 +118,7 @@ xtab-filter
   /* reduces the opacity of the placeholder on mobile when the menu is open */
   opacity: .4;
 }
-@media only screen and (min-width: 768px) {
+/*@media only screen and (min-width: 768px) {*/
   .cd-tab-filter {
     /* tabbed navigation style on medium devices */
     width: auto;
@@ -155,9 +155,9 @@ xtab-filter
     text-transform: uppercase;
     display: block;
     /* set same size of the .cd-tab-filter */
-    height: 100px;
-    width: 100px;
-    padding: 34px 0px;
+    height: auto;
+    width: auto;
+    padding: 40px;
     margin: 0px 10px;
     background: url('../img/diamond.png');
     background-repeat: no-repeat;
@@ -184,7 +184,7 @@ xtab-filter
     display: inline-block;
   }
 }
-@media only screen and (min-width: 1170px) {
+/*@media only screen and (min-width: 1170px) {*/
   .cd-tab-filter {
     /* tabbed navigation on big devices */
     width: 100%;
