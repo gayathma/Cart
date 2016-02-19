@@ -52,7 +52,7 @@ Class User extends CI_Model {
         $this->db->where('UserID', $userID);
         $this->db->update('user', $data);
         if ($this->db->affected_rows() == 1) {
-            return TRUE;
+            return 1;
         }else{
             return FALSE;
         }

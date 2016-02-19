@@ -20,6 +20,7 @@ function showRegisterForm() {
 function showLoginForm() {
     $('#loginModal .registerBox').fadeOut('fast', function() {
         $('.loginBox').fadeIn('fast');
+        $('.log-box').fadeIn('fast');
         $('.register-footer').fadeOut('fast', function() {
             $('.login-footer').fadeIn('fast');
         });
@@ -47,67 +48,69 @@ function openRegisterModal() {
 function loginAjax() {
     var Email = $(".loginEmail").val();
     var Pass = $(".loginPass").val();
-    $.ajax({
-        type: "POST",
-        dataType: "text",
-        url: site_url + "/checkLogin", //Relative or absolute path to response.php file
-        data: {
-            active: 'ok',
-            email: Email,
-            password: Pass
-        },
-        success: function(data) {
-            if (data === "failed") {
-                $('.error').addClass('alert alert-danger').html("Invalid email/password combination");
-                shakeModal();
-            } else {
-                window.location = site_url + "/shop";
+    if($('#login_form').valid()){
+        $.ajax({
+            type: "POST",
+            dataType: "text",
+            url: site_url + "/checkLogin", //Relative or absolute path to response.php file
+            data: {
+                active: 'ok',
+                email: Email,
+                password: Pass
+            },
+            success: function(data) {
+                if (data === "failed") {
+                    $('.error').addClass('alert alert-danger').html("Invalid email/password combination");
+                    shakeModal();
+                } else {
+                    window.location = site_url + "/shop";
+                }
             }
-        }
-    });
-
+        });
+    }
 }
 
 function RegisterAjax() {
     var Email = $(".RegEmail").val();
     var Pass = $(".RegPassword").val();
     var ConPass = $(".RegPassConfirm").val();
-    $.ajax({
-        type: "POST",
-        dataType: "text",
-        url: site_url + "/home/registerUser", //Relative or absolute path to response.php file
-        data: {
-            active: 'ok',
-            email: Email,
-            password: Pass,
-            ConfirmPass: ConPass
-        },
-        success: function(data) {
-            if (data === "allempty") {
-                $('.error').addClass('alert alert-danger').html("All Fields Need To Be Filled");
-                shakeModal();
-            } else if (data === "emailnotvalid") {
-                $('.error').addClass('alert alert-danger').html("Email has to be valid");
-                shakeModal();
-            } else if (data === "passlengthinvalid") {
-                $('.error').addClass('alert alert-danger').html("Password has to be more than 8 characters");
-                shakeModal();
-            } else if (data === "passnotmatch") {
-                $('.error').addClass('alert alert-danger').html("No matching passwords");
-                shakeModal();
-            } else if (data === "notsaved") {
-                $('.error').addClass('alert alert-danger').html("Error in your registration");
-                shakeModal();
-            } else if (data === "emailinuse") {
-                $('.error').addClass('alert alert-danger').html("Email in use");
-                shakeModal();
-            } else if (data === "saved") {
-                $('.error').removeClass('alert alert-danger');
-                $('.error').addClass('alert alert-success').html("Registration success - now you can login");
+    if($('#register-form').valid()){
+        $.ajax({
+            type: "POST",
+            dataType: "text",
+            url: site_url + "/home/registerUser", //Relative or absolute path to response.php file
+            data: {
+                active: 'ok',
+                email: Email,
+                password: Pass,
+                ConfirmPass: ConPass
+            },
+            success: function(data) {
+                if (data === "allempty") {
+                    $('.error').addClass('alert alert-danger').html("All Fields Need To Be Filled");
+                    shakeModal();
+                } else if (data === "emailnotvalid") {
+                    $('.error').addClass('alert alert-danger').html("Email has to be valid");
+                    shakeModal();
+                } else if (data === "passlengthinvalid") {
+                    $('.error').addClass('alert alert-danger').html("Password has to be more than 8 characters");
+                    shakeModal();
+                } else if (data === "passnotmatch") {
+                    $('.error').addClass('alert alert-danger').html("No matching passwords");
+                    shakeModal();
+                } else if (data === "notsaved") {
+                    $('.error').addClass('alert alert-danger').html("Error in your registration");
+                    shakeModal();
+                } else if (data === "emailinuse") {
+                    $('.error').addClass('alert alert-danger').html("Email in use");
+                    shakeModal();
+                } else if (data === "saved") {
+                    $('.error').removeClass('alert alert-danger');
+                    $('.error').addClass('alert alert-success').html("Registration success - now you can login");
+                }
             }
-        }
-    });
-
+        });
+    }
 }
 
 

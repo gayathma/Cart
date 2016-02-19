@@ -55,9 +55,9 @@ class Home extends CI_Controller {
         if ($this->input->post('active') == "ok") {
             $email = $this->input->post('email');
             $pass = $this->input->post('password');
-            $checkUser = $this->user->checkUser($email, $pass);
+            $checkUser = $this->user->checkUser($email, md5($pass));
             if ($checkUser) {
-                if ($email == $checkUser['Email'] && $pass == $checkUser['password']) {
+                if ($email == $checkUser['Email'] && md5($pass) == $checkUser['password']) {
                     $this->session->set_userdata(array(
                         'user_id' => $checkUser['UserID'],
                         'email' => $checkUser['Email'],
@@ -80,7 +80,7 @@ class Home extends CI_Controller {
         if ($this->session->userdata("status")) {
             $this->session->sess_destroy();
             $redirect = $_SERVER['HTTP_REFERER'];
-            redirect("$redirect", "location");
+            $this->load->view('home');
         } else {
             $redirect = $_SERVER['HTTP_REFERER'];
             redirect("$redirect", "location");
@@ -90,6 +90,11 @@ class Home extends CI_Controller {
     public function index() {
         $this->load->view('home');
     }
+
+    public function register() {
+        $this->load->view('register');
+    }
+
 
 }
 

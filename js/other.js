@@ -24,11 +24,14 @@ $(document).ready(function() {
   $('#activate-step-2').on('click', function(e) {
       $('ul.setup-panel li:eq(1)').removeClass('disabled');
       $('ul.setup-panel li a[href="#step-2"]').trigger('click');
-  })
+  });
+  
   $('#activate-step-3').on('click', function(e) {
+    if($("#details-confirmation").valid()){
       $('ul.setup-panel li:eq(2)').removeClass('disabled');
       $('ul.setup-panel li a[href="#step-3"]').trigger('click');
-  })
+    }
+  });
 
     $('#myCarousel').carousel({
 	    interval: 10000

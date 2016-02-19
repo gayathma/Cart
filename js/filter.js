@@ -1,4 +1,12 @@
 jQuery(document).ready(function($){
+	$("#cart").click(function() {
+		if($('#session_user_id').val() != ""){
+	        window.location.href = site_url+"/cart"; // in everypage use this to link to shopping cart. cannot directly link because no anchor tag.
+	    }else{
+	    	setTimeout("location.href = site_url+'/home/register';", 100);
+	    }
+    });
+
 	//open/close lateral filter
 	$('.cd-filter-trigger').on('click', function(){
 		triggerFilter(true);
@@ -206,3 +214,19 @@ var buttonFilter = {
 		}
   	}
 };
+
+function addLikes(item_id){
+	if($('#session_user_id').val() != ""){
+		$.post(site_url+'/shop/addLikes',{ item_id : item_id}, function (msg) {
+			if (msg != '') {
+				toastr.success("Successfully saved !!", "Jäger");
+				$('#img_id'+item_id).attr('title',msg);
+				$('#img_id'+item_id).attr('data-original-title',msg);
+			} else {
+				toastr.error("Error Occurred !!", "Jäger");
+			}
+		});
+	}else{
+		setTimeout("location.href = site_url+'/home/register';", 100);
+	}
+}

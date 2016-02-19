@@ -17,6 +17,7 @@
         <link rel="stylesheet" href="<?php echo base_url("css/filter.css"); ?>">
         <link rel="stylesheet" href="<?php echo base_url("css/nav-animation.css"); ?>">
         <link rel="stylesheet" href="<?php echo base_url("css/icon-effects.css"); ?>">
+        <link rel="stylesheet" href="<?php echo base_url("css/toastr.css"); ?>">
 
         <script src="<?php echo base_url("js/modernizr.js"); ?>"></script> <!-- Modernizr -->
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
@@ -26,6 +27,12 @@
           <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
           <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
+
+        <script type="text/javascript">
+            var base_url = "<?php echo base_url(); ?>";
+            var site_url = "<?php echo site_url(); ?>";
+
+        </script>
 
     </head>
     <body>
@@ -48,7 +55,7 @@
                     <ul class="nav navbar-nav navbar-right main-nav cl-effect-1">
                         <li><a href="<?php echo site_url() . '/shop' ?>">Shop</a></li>
                         <li><a href="#">About</a></li>
-                        <li><a href="#">Custom</a></li>
+                        <li><a href="<?php echo site_url() . '/shop/order' ?>">Custom</a></li>
                         <li><a href="#">Contact</a></li>
                         <li class="main-dropdown">
                             <a href="<?php echo base_url(); ?>" class="nav-username">
@@ -60,7 +67,7 @@
                                         echo $this->session->userdata('email');
                                     }
                                 } else {
-                                    echo "Guest";
+                                    
                                 }
                                 ?>
                             </a> <!--maximum characters for username = 15-->
@@ -75,24 +82,16 @@
                                     <li><a href = "<?php echo site_url() . '/home/logout' ?>">Logout<span class = "pull-right">+</span></a></li>
                                 </ul>
                                 <?php
-                                $cart_count = count($cart_data->getCartItems());
+                                $cart_count = $cart_data->getCartItems();
                                 if ($cart_count != 0) {
                                     $cart_class = 'cart-items-notification-active';
                                 } else {
                                     $cart_class = '';
                                 }
                             } else {
-
+                                
                             }
                             ?>
-  <!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-  <ul class="dropdown-menu">
-    <li><a href="#">Action</a></li>
-    <li><a href="#">Another action</a></li>
-    <li><a href="#">Something else here</a></li>
-    <li role="separator" class="divider"></li>
-    <li><a href="#">Separated link</a></li>
-  </ul> -->
                         </li>
                         <li>
                             <span class="hi-icon-effect-1 hi-icon-effect-1a">
@@ -330,12 +329,17 @@
                 <div class="cd-fail-message">No results found</div>
                 <ul>
                     <?php
+                    $count = 1;
                     foreach ($items as $i) {
+                        $likes_count = $this->item_shop->GetItemLikesCount($i['ItemID']);
                         $title      = $i['ItemTitle'];
                         $trimTitle  = trim($title);
                         $finalTitle = str_replace(" ", "-", $trimTitle);
                         $itemColor  = strtolower($i['ItemType']);
                         $type       = "";
+                        $new_cls = "";
+                        $top_cls = "";
+
                         if ($itemColor == 'green') {
                             $type = "check1";
                         } else if ($itemColor == 'black') {
@@ -345,40 +349,38 @@
                         } else if ($itemColor == 'white') {
                             $type = "check4";
                         }
-                        echo '<li class="mix color-1 ' . $type . ' radio2 option3 cd-item">';
-                        echo '<a href="' . site_url() . "/shop/buy/" . $i['ItemID'] . "/" . $finalTitle . "" . '"><img src="' . base_url($i['ItemImg']) . '" alt="Image 1" class="thumb img-responsive"><div class="price"></a>';
+
+                        if($count <= 5){
+                            $new_cls =  "color-1";   
+                        }
+
+                        if($likes_count >= 50){
+                            $top_cls =  "color-2";   
+                        }
+
+
+                        echo '<li class="mix '.$top_cls.' '.$new_cls.' ' . $type . ' radio2 option3 cd-item">';
+                        echo '<a href="' . site_url() . "/shop/buy/" . $i['ItemID'] . "/" . $finalTitle . "" . '"><img src="' . base_url().'/uploads/'.$i['ItemImg'] . '" alt="Image 1" class="thumb img-responsive"><div class="price"></a>';
                         echo '<section class="tee-sum">';
                         echo '<span style="width:100%; display:block;"><a href="' . site_url() . "/shop/buy/" . $i['ItemID'] . "/" . $finalTitle . "" . '">'.$i['ItemName'] .'</a></span>';
                         echo '<span class="pull-left">';
                         echo '<span class="pull-left"><span>Rs. ' . $i['ItemPrice'] . '</span></span>';
-                        // echo '<fieldset class="tee-rating">';
-                        // echo '<input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>';
-                        // echo '<input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>';
-                        // echo '<input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>';
-                        // echo '<input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>';
-                        // echo '<input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>';
-                        // echo '</fieldset>';
                         echo '</span>';
-                        echo '<a href="#" id="' . $i['ItemID'] . '" class="items"><span class="pull-right"><img src="' . base_url("img/heart-icon.png") . '" alt="" data-toggle="tooltip" data-placement="bottom" title="12"></span></a>';
+                        echo '<a  onclick="addLikes('. $i['ItemID'].')" id="' . $i['ItemID'] . '" ><span class="pull-right"><img id="img_id'. $i['ItemID'].'" src="' . base_url("img/heart-icon.png") . '" alt="" data-toggle="tooltip" data-placement="bottom" title="'. $likes_count.'"></span></a>';
                         echo '</section>';
                         echo '</li>';
-                        // echo '<li class="gap"></li>';
-                        // echo '<li class="gap"></li>';
-                        // echo '<li class="gap"></li>';
                     }
                     ?>
-                    <!-- <li class="gap"></li>
-                    <li class="gap"></li>
-                    <li class="gap"></li> -->
                 </ul>
             </section>
-            <!-- </section> -->
+            <input type="hidden" name="session_user_id" id="session_user_id" value="<?php echo $this->session->userdata("user_id");?>"/>
         </section>
 
         <section class="container">
             <section class="row">
                 <div class="text-center">
                     <ul class="pagination">
+                        <?php //echo $links; ?>
                         <li>
                             <a href="#" aria-label="Previous">
                                 <span aria-hidden="true">Prev</span>
@@ -438,14 +440,12 @@
     <script src="<?php echo base_url("js/jquery.mixitup.min.js"); ?>"></script>
     <script src="<?php echo base_url("js/filter.js"); ?>"></script> <!-- Resource jQuery -->
     <script src="<?php echo base_url("js/jquery.fittext.js"); ?>"></script>
+    <script src="<?php echo base_url("js/toastr.js"); ?>"></script>
     <script>
             $("#responsive-heading").fitText(1.1, { minFontSize: '40px', maxFontSize: '60px' });
             $("#responsive-sub-heading").fitText(1.1, { minFontSize: '40px', maxFontSize: '75px' });
             $(document).ready(function() {
-                $("#cart").click(function() {
-                    window.location.href = "<?php echo site_url().'/cart'; ?>"; // in everypage use this to link to shopping cart. cannot directly link because no anchor tag.
-
-                });
+               
                 $('[data-toggle="tooltip"]').tooltip();
 
                 if (($(window).height() + 1000) < $(document).height()) {

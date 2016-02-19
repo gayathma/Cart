@@ -9,6 +9,7 @@ class Shop extends CI_Controller {
         parent::__construct();
         $this->load->model('item_shop');
         $this->load->model('cart_data');
+        $this->load->library('pagination_custom');
     }
 
     public function index() {
@@ -27,6 +28,31 @@ class Shop extends CI_Controller {
             $this->load->view('product-page',$data);
         } else {
             redirect('/shop', 'location', 301);
+        }
+    }
+
+    public function addLikes(){
+        if ($this->session->userdata("user_id") != "") {
+            $item_id = $this->input->post('item_id');
+
+            $data = array(
+                    "ItemID" => $item_id,
+                    "UserID" => $this->session->userdata("user_id"),
+                    "Status" => '1'
+                );
+
+            echo $this->item_shop->addLike($item_id,$data);
+
+        } else {
+            $this->load->view('register');
+        }
+    }
+
+    public function order() {
+        if ($this->session->userdata("user_id") != "") {
+            $this->load->view('order');
+        } else {
+            $this->load->view('register');
         }
     }
 

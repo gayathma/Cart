@@ -3,7 +3,7 @@
 Class Item_shop extends CI_Model{
     
     public function GetAllItems(){
-        $this->db->select('*')->from('item');
+        $this->db->select('*')->from('item')->order_by("ItemID", "DESC");
         $query = $this->db->get();
         return $query->result_array();
     }
@@ -23,6 +23,23 @@ Class Item_shop extends CI_Model{
         $this->db->select('*')->from('item')->where(array("ItemType"=>$type,"ItemID !="=>$id))->order_by("ItemID", "DESC");
         $query = $this->db->get();
         return $query->result_array();
+    }
+
+    public function GetItemLikesCount($item_id){
+        $this->db->select('*')->from('item_likes')->where(array("ItemID"=>$item_id, "Status"=>'1'));
+        $query = $this->db->get();
+        $count = $query->num_rows();
+        return $count;
+    }
+
+    public function addLike($item_id, $data){
+        $this->db->insert('item_likes', $data);
+        $this->db->insert_id();
+
+        $this->db->select('*')->from('item_likes')->where(array("ItemID"=>$item_id, "Status"=>'1'));
+        $query = $this->db->get();
+        $count = $query->num_rows();
+        return $count;
     }
     
 }

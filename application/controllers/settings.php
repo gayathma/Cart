@@ -9,21 +9,31 @@ class Settings extends CI_Controller {
         parent::__construct();
         $this->load->model('user');
         $this->load->model('cart_data');
+        $this->load->model('item_shop');
     }
 
     public function index() {
         if ($this->session->userdata("user_id") != "") {
             $userID = $this->session->userdata("user_id");
             $data['userData'] = $this->user->getUserDataFromID($userID);
+            $data['historyData'] = $this->cart_data->getPastCartItems();
             $this->load->view('settings', $data);
         } else {
-            redirect(base_url(), 'location');
+            $this->load->view('register');
         }
     }
 
     public function UpdateSettings() {
-        if ($this->session->userdata('status')) {
-            
+        if ($this->session->userdata("user_id") != "") {
+            $data = array(
+                    "FirstName" => $this->input->post('FirstName'),
+                    "LastName" => $this->input->post('LastName'),
+                    "Address" => $this->input->post('Address'),
+                    "City" => $this->input->post('City'),
+                    "password" => md5($this->input->post('password'))
+                );
+
+            echo $this->user->updateUserData($this->session->userdata("user_id"), $data);
         } else {
             $redirectto = $_SERVER['HTTP_REFERER'];
             redirect($redirectto, 'location');

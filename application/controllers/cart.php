@@ -9,6 +9,7 @@ class Cart extends CI_Controller {
         parent::__construct();
         $this->load->model('item_shop');
         $this->load->model('cart_data');
+        $this->load->model('user');
     }
 
     public function addItemFast() {
@@ -19,29 +20,59 @@ class Cart extends CI_Controller {
                     "ItemID" => $itemID,
                     "UserID" => $this->session->userdata('user_id'),
                     "Qty" => '1'
-                );
+                    );
                 if ($this->cart_data->saveItem($data)) {
-                    echo 'added';
+                    echo $this->cart_data->getCartItems();
                 } else {
-                    echo 'no';
+                    echo 0;
                 }
             }else{
-                echo 'lgfl';
+                $this->load->view('register');
             }
         }
     }
 
     public function index() {
         if ($this->session->userdata('status')) {
-            $data['items'] = $this->cart_data->getCartItems();
+            $data['items'] = $this->cart_data->getCartItemsDetails();
+            $userID = $this->session->userdata("user_id");
+            $data['userData'] = $this->user->getUserDataFromID($userID);
             $this->load->view('cart',$data);
-      
+
         } else {
             $redirect = $_SERVER['HTTP_REFERER'];
             redirect("$redirect", "location");
         }
     }
     
+    public function deleteItem(){
+        if ($this->session->userdata("user_id") != "") {
+            $item_id = $this->input->post('item_id');
+
+            $this->cart_data->DeleteCartItems($item_id);
+
+            echo $cart_count = $this->cart_data->getCartItems();
+
+        } else {
+            $redirectto = $_SERVER['HTTP_REFERER'];
+            redirect($redirectto, 'location');
+        }
+    }
+
+    public function updateItemQty(){
+        if ($this->session->userdata("user_id") != "") {
+            $item_id = $this->input->post('item_id');
+            $qty = $this->input->post('qty');
+
+            $this->cart_data->updateCartItemQty($item_id, $qty);
+
+            echo $cart_count = $this->cart_data->getCartItems();
+
+        } else {
+            $redirectto = $_SERVER['HTTP_REFERER'];
+            redirect($redirectto, 'location');
+        }
+    }
 
 }
 

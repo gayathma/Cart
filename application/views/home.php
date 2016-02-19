@@ -62,7 +62,7 @@
                         <div class="content">
                             <div class="error"></div>
                             <div class="form loginBox">
-                                <form method="post" action="<?php echo base_url("checkLogin") ?>" accept-charset="UTF-8">
+                                <form method="post" action="<?php echo base_url("checkLogin") ?>" accept-charset="UTF-8" id="login_form">
                                     <div class="form-group">
                                         <input id="email" class="tee-text-light form-control loginEmail" type="text" placeholder="Email" name="email">
                                     </div>
@@ -82,7 +82,7 @@
                                         <input id="email" class="form-control tee-text-light RegEmail" type="text" placeholder="Email" name="email">
                                     </div>
                                     <div class="form-group">
-                                        <input id="password" class="form-control tee-text-light RegPassword" type="password" placeholder="Password" name="password">
+                                        <input id="password_re" class="form-control tee-text-light RegPassword" type="password" placeholder="Password" name="password">
                                     </div>
                                     <div class="form-group">
                                         <input id="password_confirmation" class="form-control tee-text-light RegPassConfirm" type="password" placeholder="Repeat Password" name="password_confirmation">
@@ -90,23 +90,6 @@
                                     <button type="button" class="btn btn-primary square-btn-long" value="Login" onclick="RegisterAjax()">Get Started</button>
                                 </form>
                             </div>
-                        </div>
-
-                        <div class="division">
-                            <div class="line l"></div>
-                            <span>or</span>
-                            <div class="line r"></div>
-                        </div>
-                        <div class="social-login">
-                            <a class="circle twitter" href="/auth/twitter">
-                                <i class="fa fa-twitter fa-fw"></i>
-                            </a>
-                            <a id="google_login" class="circle google" href="/auth/google_oauth2">
-                                <i class="fa fa-google-plus fa-fw"></i>
-                            </a>
-                            <a id="facebook_login" class="circle facebook" href="/auth/facebook">
-                                <i class="fa fa-facebook fa-fw"></i>
-                            </a>
                         </div>
                     </div>
                 </div>
@@ -137,6 +120,32 @@
     <script src="<?php echo base_url("js/filter.js"); ?>"></script> <!-- Resource jQuery -->
     <script src="<?php echo base_url("js/product-slider.js"); ?>"></script> <!-- Resource jQuery -->
     <script src="<?php echo base_url("js/other.js"); ?>"></script>
+    <script src="<?php echo base_url("js/jquery.validate.min.js"); ?>"></script>
     <script src="<?php echo base_url("js/login-register.js"); ?>"></script>
+    <script type="text/javascript">
+$(document).ready(function ($) {
+    $("#login_form").validate({
+        rules: {
+            email: "required",
+            password: "required"
+        }
+    });
+
+    $("#register-form").validate({
+        rules: {
+            email: "required",
+            password:  {
+                required: true,
+                minlength: 6
+            },
+            password_confirmation: {
+                required: true,
+                minlength: 6,
+                equalTo: $('#password_re')
+            }
+        }
+    });
+});
+</script>
 </body>
 </html>
