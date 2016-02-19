@@ -8,17 +8,17 @@
   <title>Jäger Clothing Custom Order</title>
 
   <!-- Bootstrap -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/reset.css" rel="stylesheet">
-  <link href="css/main.css" rel="stylesheet">
-  <link href="css/social.css" rel="stylesheet">
+  <link href="<?php echo base_url("css/bootstrap.min.css") ?>" rel="stylesheet">
+  <link href="<?php echo base_url("css/reset.css") ?>" rel="stylesheet">
+    <link href="<?php echo base_url("css/main.css") ?>" rel="stylesheet">
+    <link href="<?php echo base_url("css/social.css") ?>" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/nav-animation.css">
-  <link rel="stylesheet" href="css/icon-effects.css">
+  <link rel="stylesheet" href="<?php echo base_url("css/nav-animation.css") ?>">
+  <link rel="stylesheet" href="<?php echo base_url("css/icon-effects.css") ?>">
   <link rel="stylesheet" href="<?php echo base_url("css/toastr.css"); ?>">
-  <link rel="stylesheet" href="css/bootstrap-color-selector.css">
+  <link rel="stylesheet" href="<?php echo base_url("css/bootstrap-color-selector.css"); ?>">
 
-  <script src="js/modernizr.js"></script> <!-- Modernizr -->
+  <script src="<?php echo base_url("js/modernizr.js"); ?>"></script> <!-- Modernizr -->
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -243,12 +243,12 @@ var site_url = "<?php echo site_url(); ?>";
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/jquery.mixitup.min.js"></script>
-  <script src="js/filter.js"></script> <!-- Resource jQuery -->
-  <script src="js/product-slider.js"></script> <!-- Resource jQuery -->
-  <script src="js/other.js"></script>
-  <script src="js/bootstrap-color-selector.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="<?php echo base_url("js/jquery.mixitup.min.js"); ?>"></script>
+    <script src="<?php echo base_url("js/filter.js"); ?>"></script> <!-- Resource jQuery -->
+  <script src="<?php echo base_url("js/product-slider.js"); ?>"></script> <!-- Resource jQuery -->
+  <script src="<?php echo base_url("js/other.js"); ?>"></script>
+  <script src="<?php echo base_url("js/bootstrap-color-selector.js"); ?>"></script>
   <script src="<?php echo base_url("js/toastr.js"); ?>"></script>
   <script src="<?php echo base_url("js/jquery.validate.min.js"); ?>"></script>
 

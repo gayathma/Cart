@@ -12,8 +12,19 @@ class Shop extends CI_Controller {
         $this->load->library('pagination_custom');
     }
 
-    public function index() {
+    public function index($start = 0) {
+        $config = array();
+        $config["base_url"] = site_url() . "/shop/index/";
+        $config["per_page"] = 1;
+        $config["uri_segment"] = 3;
+        $config["num_links"] = 4;
+
         $data['items'] = $this->item_shop->GetAllItems();
+        $config["total_rows"] = count($data['items']);
+
+        $this->pagination_custom->initialize($config);
+        $data["links"] = $this->pagination_custom->create_links();
+
         $this->load->view('shop', $data);
     }
 
