@@ -94,6 +94,14 @@ class Home extends CI_Controller {
     public function register() {
         $this->load->view('register');
     }
+    
+    public function about() {
+        $this->load->view('about');
+    }
+    
+    public function contact() {
+        $this->load->view('contact');
+    }
 
 
 }

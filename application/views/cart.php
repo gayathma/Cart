@@ -49,9 +49,9 @@
                 <section class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right main-nav cl-effect-1">
                         <li><a href="<?php echo site_url() . '/shop' ?>">Shop</a></li>
-                        <li><a href="#">About</a></li>
+                        <li><a href="<?php echo site_url() . '/home/about' ?>">About</a></li>
                         <li><a href="<?php echo site_url() . '/shop/order' ?>">Custom</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="<?php echo site_url() . '/home/contact' ?>">Contact</a></li>
                         <li class="main-dropdown">
                             <a href="<?php echo base_url(); ?>" class="nav-username">
                                 <?php
