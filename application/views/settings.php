@@ -241,7 +241,7 @@
                                                                     <button type="submit" id="activate-step-3" class="btn btn-primary square-btn pull-left">Save Changes</button>
                                                                 </div>
                                                                 <div class="col-lg-2">
-                                                                    <button type="button" id="activate-step-3" class="btn btn-primary square-btn pull-left">Cancel</button>
+                                                                    <a   id="activate-step-3" class="btn btn-primary square-btn pull-left" href="<?php echo site_url() . '/shop' ?>">Cancel</a>
                                                                 </div>
                                                             </div>
 
