@@ -3,11 +3,11 @@
 Class Cart_data extends CI_Model {
 
     public function saveItem($data) {
-        $this->db->select("Qty,CartItemID")->from('cart_item')->where(array("status" => 'pending', "ItemID" => $data['ItemID'],"UserID"=>$this->session->userdata('user_id')));
+        $this->db->select("Qty,CartItemID")->from('cart_item')->where(array("status" => 'pending', "ItemID" => $data['ItemID'], "UserID" => $this->session->userdata('user_id')));
         $query = $this->db->get();
         if ($query->num_rows() > 0) {
             $data = array(
-                'Qty' =>  $query->row()->Qty+1
+                'Qty' => $query->row()->Qty + 1
             );
 
             $this->db->where('CartItemID', $query->row()->CartItemID);
@@ -18,57 +18,55 @@ Class Cart_data extends CI_Model {
             return $this->db->insert_id();
         }
     }
-    
-    public function getCartItems(){
-        $this->db->select('SUM(cart_item.Qty) as sum')->from('item')->join('cart_item','item.ItemID = cart_item.ItemID')->where(array("cart_item.Status"=>"pending","cart_item.UserID"=>$this->session->userdata('user_id')))->order_by('CartItemID','DESC');
+
+    public function getCartItems() {
+        $this->db->select_sum('cart_item.Qty')->from('item')->join('cart_item', 'item.ItemID = cart_item.ItemID')->where(array("cart_item.Status" => "pending", "cart_item.UserID" => $this->session->userdata('user_id')))->order_by('CartItemID', 'DESC');
         $query = $this->db->get();
-        if($query->num_rows()> 0){
-            return $query->row()->sum;
-        }else{
-            return 0;
+        
+        $res   = $query->row();
+
+        return $res->Qty;
+    }
+
+    public function getCartItemsDetails() {
+        $this->db->select('item.*,cart_item.*')->from('item')->join('cart_item', 'item.ItemID = cart_item.ItemID')->where(array("cart_item.Status" => "pending", "cart_item.UserID" => $this->session->userdata('user_id')))->order_by('CartItemID', 'DESC');
+        $query = $this->db->get();
+        if ($query->num_rows() > 0) {
+            return $query->result_array();
+        } else {
+            return FALSE;
         }
     }
 
-    public function getCartItemsDetails(){
-        $this->db->select('item.*,cart_item.*')->from('item')->join('cart_item','item.ItemID = cart_item.ItemID')->where(array("cart_item.Status"=>"pending","cart_item.UserID"=>$this->session->userdata('user_id')))->order_by('CartItemID','DESC');
+    public function getHistoryItems() {
+        $this->db->select('item.*,cart_item.*')->from('item')->join('cart_item', 'item.ItemID = cart_item.ItemID')->where(array("cart_item.Status" => "purches", "cart_item.UserID" => $this->session->userdata('user_id')))->order_by('CartItemID', 'DESC');
         $query = $this->db->get();
-        if($query->num_rows()>0){
+        if ($query->num_rows() > 0) {
             return $query->result_array();
-        }else{
+        } else {
             return FALSE;
         }
     }
-    
-    public function getHistoryItems(){
-        $this->db->select('item.*,cart_item.*')->from('item')->join('cart_item','item.ItemID = cart_item.ItemID')->where(array("cart_item.Status"=>"purches","cart_item.UserID"=>$this->session->userdata('user_id')))->order_by('CartItemID','DESC');
-        $query = $this->db->get();
-        if($query->num_rows()>0){
-            return $query->result_array();
-        }else{
-            return FALSE;
-        }
-    }
-    
-    public function DeleteCartItems($id){
+
+    public function DeleteCartItems($id) {
         $this->db->delete('cart_item', array('CartItemID' => $id));
         return $this->db->affected_rows();
     }
 
-    public function getPastCartItems(){
-        $this->db->select('item.*,cart_item.*')->from('item')->join('cart_item','item.ItemID = cart_item.ItemID')->where(array("cart_item.Status"=>"purches","cart_item.UserID"=>$this->session->userdata('user_id')))->order_by('CartItemID','DESC');
+    public function getPastCartItems() {
+        $this->db->select('item.*,cart_item.*')->from('item')->join('cart_item', 'item.ItemID = cart_item.ItemID')->where(array("cart_item.Status" => "purches", "cart_item.UserID" => $this->session->userdata('user_id')))->order_by('CartItemID', 'DESC');
         $query = $this->db->get();
-        if($query->num_rows()>0){
+        if ($query->num_rows() > 0) {
             return $query->result_array();
-        }else{
+        } else {
             return FALSE;
         }
     }
 
     public function updateCartItemQty($id, $qty) {
-           
+
         $this->db->where('CartItemID', $id);
         return $this->db->update('cart_item', array('Qty' => $qty));
-            
     }
 
 }

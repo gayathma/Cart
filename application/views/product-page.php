@@ -280,6 +280,7 @@ var site_url = "<?php echo site_url(); ?>";
             $.post(site_url+'/cart/addItemFast',{ iid : item_id}, function (msg) {
                 if (msg != '') {
                     $('.cart-items-notification').html(msg);
+                     $('.cart-items-notification').addClass('cart-items-notification-active');
                 } else {
                     toastr.error("Error Occurred !!", "Jäger");
                 }

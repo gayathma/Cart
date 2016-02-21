@@ -451,12 +451,13 @@
             },
             function () {
                 $.post(site_url+'/cart/deleteItem',{ item_id : item_id}, function (msg) {
+                    swal("Deleted!", "Your item has been deleted.", "success");
                     if (msg != '') {
-                        toastr.success("Successfully deleted !!", "Jäger");
                         $('#cr_'+item_id).hide();
                         $('.cart-items-notification').html(msg);
                     } else {
-                        toastr.error("Error Occurred !!", "Jäger");
+                        $('#cr_'+item_id).hide();
+                        $('.cart-items-notification').removeClass('cart-items-notification-active');
                     }
                 });
             });
