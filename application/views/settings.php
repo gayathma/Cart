@@ -41,7 +41,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="logo" href="<?php echo site_url(); ?>"><img src="<?php echo base_url("img/logo.png"); ?>" alt=""></a>
+                        <a class="logo" href="<?php echo site_url() . '/shop' ?>"><img src="<?php echo base_url("img/logo.png"); ?>" alt=""></a>
                     </section>
 
                     <!-- Collect the nav links, forms, and other content for toggling -->

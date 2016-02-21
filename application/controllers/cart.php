@@ -52,6 +52,8 @@ class Cart extends CI_Controller {
             $this->cart_data->DeleteCartItems($item_id);
 
             $cart_count = $this->cart_data->getCartItems();
+            
+            echo $cart_count;
 
         } else {
             $redirectto = $_SERVER['HTTP_REFERER'];
@@ -66,7 +68,8 @@ class Cart extends CI_Controller {
 
             $this->cart_data->updateCartItemQty($item_id, $qty);
 
-            echo $cart_count = $this->cart_data->getCartItems();
+             $cart_count = $this->cart_data->getCartItems();
+            echo $cart_count;
 
         } else {
             $redirectto = $_SERVER['HTTP_REFERER'];

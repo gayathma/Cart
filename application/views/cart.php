@@ -42,7 +42,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="logo" href="<?php echo site_url(); ?>"><img src="<?php echo base_url("img/logo.png"); ?>" alt=""></a>
+                    <a class="logo" href="<?php echo site_url() . '/shop' ?>"><img src="<?php echo base_url("img/logo.png"); ?>" alt=""></a>
                 </section>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -113,7 +113,7 @@
         <section class="row">
             <section class="col-md-12 tee-tabs-top">
                 <ol class="breadcrumb">
-                    <li><a href="<?php echo site_url().'/home'?>"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
+                    <li><a href="<?php echo site_url() . '/shop' ?>"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
                     <li><a href="<?php echo site_url() . '/shop' ?>">Shop</a></li>
                     <li class="active">Cart</li>
                 </ol>
