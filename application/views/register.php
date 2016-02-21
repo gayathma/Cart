@@ -143,11 +143,11 @@
                         email: "required",
                         password:  {
                             required: true,
-                            minlength: 6
+                            minlength: 8
                         },
                         password_confirmation: {
                             required: true,
-                            minlength: 6,
+                            minlength: 8,
                             equalTo: $('#password')
                         }
                     }

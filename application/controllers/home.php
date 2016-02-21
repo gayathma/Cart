@@ -23,7 +23,7 @@ class Home extends CI_Controller {
                             if ($pass === $conPass) {
                                 $data = array(
                                     "Email" => $email,
-                                    "Password" => $pass
+                                    "Password" => md5($pass)
                                 );
                                 if ($this->user->registerUser($email, $data)) {
                                     echo 'saved';
