@@ -49,7 +49,6 @@ class Login extends CI_Controller
         } else {
             $logged_user_result = true;
         }
-
         if ($logged_user_result) {
 
             $this->session->set_userdata('USER_ID', $result_user->UserID);
@@ -58,7 +57,6 @@ class Login extends CI_Controller
             $this->session->set_userdata('USER_TYPE', 'admin');
             $this->session->set_userdata('USER_EMAIL', $result_user->Email);
             $this->session->set_userdata('USER_LOGGED_IN', 'TRUE');
-
 
             echo 1;
         } else {

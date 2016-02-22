@@ -202,12 +202,12 @@
                           <ul class="cd-filter-content cd-filters list">
                               <li>
                                   <input class="filter" data-filter=".check5" type="checkbox" id="checkbox5">
-                                  <label class="checkbox-label" for="checkbox5">Color</label>
+                                  <label class="checkbox-label" for="checkbox5">Purple</label>
                               </li>
                               <br>
                               <li>
                                   <input class="filter" data-filter=".check6" type="checkbox" id="checkbox6">
-                                  <label class="checkbox-label" for="checkbox6">Color</label>
+                                  <label class="checkbox-label" for="checkbox6">Brown</label>
                               </li>
                           </ul>
                       </section>
@@ -339,6 +339,7 @@
                         $type       = "";
                         $new_cls = "";
                         $top_cls = "";
+                        $t_cls= "";
 
                         if ($itemColor == 'green') {
                             $type = "check1";
@@ -357,9 +358,16 @@
                         if($likes_count >= 50){
                             $top_cls =  "color-2";   
                         }
+                        
+                        if($i['ItemFor'] == 'Guys'){
+                            $t_cls = 'check7';
+                        }else if($i['ItemFor'] == 'Girls'){
+                            $t_cls = 'check8';
+                        }else if($i['ItemFor'] == 'Girls,Guys'){
+                            $t_cls = 'check7 check8';
+                        }     
 
-
-                        echo '<li class="mix '.$top_cls.' '.$new_cls.' ' . $type . ' radio2 option3 cd-item">';
+                        echo '<li class="mix '.$top_cls.' '.$new_cls.' ' . $type . ' radio2 option3 cd-item '.$t_cls.'">';
                         echo '<a href="' . site_url() . "/shop/buy/" . $i['ItemID'] . "/" . $finalTitle . "" . '"><img src="' . base_url().'/uploads/'.$i['ItemImg'] . '" alt="Image 1" class="thumb img-responsive"><div class="price"></a>';
                         echo '<section class="tee-sum">';
                         echo '<span style="width:100%; display:block;"><a href="' . site_url() . "/shop/buy/" . $i['ItemID'] . "/" . $finalTitle . "" . '">'.$i['ItemName'] .'</a></span>';

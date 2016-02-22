@@ -9,7 +9,7 @@ class Home extends CI_Controller
     {
         parent::__construct();
 
-        if (!$this->session->userdata('USER_LOGGED_IN')) {
+        if ($this->session->userdata('USER_LOGGED_IN') != TRUE) {
             redirect(site_url() . '/login/load_login');
         } else {
 

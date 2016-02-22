@@ -27,12 +27,12 @@
                     ?>
                     <div class="line-holder" id="item_<?php echo $item->ItemID; ?>">
 
-                        <span class="numbering"><?php echo ++$i; ?></span>
+                        <span class="numbering"><?php echo++$i; ?></span>
 
                         <div class="line">
-                            <?php echo $item->ItemName .'- (Rs. '.$item->ItemPrice.')'; ?>
+                            <?php echo $item->ItemName . '- (Rs. ' . $item->ItemPrice . ')'; ?>
                             <div class="btn-holder">
-                                
+
                                 <a class="bt"
                                    onclick="edit_item(<?php echo $item->ItemID; ?>)">
                                     <i class="fa fa-pencil" title="Update"></i>
@@ -94,11 +94,13 @@
                             <div class="form-group">
                                 <label for="colour">Colour</label>
                                 <select id="colour" class="form-control" name="colour">
-                                     <option value="">Select Colour</option>
+                                    <option value="">Select Colour</option>
                                     <option value="Green">Green</option>
                                     <option value="Black">Black</option>
                                     <option value="Red">Red</option>
                                     <option value="White">White</option>
+                                    <option value="Purple">Purple</option>
+                                    <option value="Brown">Brown</option>
                                 </select>
                             </div>
 
@@ -110,86 +112,92 @@
                                 <input type="checkbox" name="size[]" value="XL"/>XL
                             </div>
 
+                            <div class="form-group">
+                                <label for="type">Type</label>
+                                <input type="checkbox" name="type_b[]" value="Girls"/>Girls
+                                <input type="checkbox" name="type_b[]" value="Guys"/>Guys
+                            </div>
+
                             <script src="<?php echo base_url(); ?>admin_resources/file_upload_plugin/ajaxupload.3.5.js"
-                                    type="text/javascript"></script>
+                            type="text/javascript"></script>
                             <script>
-                                //upload image 1
-                                $(function () {
-                                    var btnUpload = $('#upload_image1');
-                                    new AjaxUpload(btnUpload, {
-                                        action: '<?php echo site_url(); ?>/items/upload_image',
-                                        name: 'uploadfile',
-                                        onSubmit: function (file, ext) {
-                                            if (!(ext && /^(jpg|png|jpeg|gif)$/.test(ext))) {
-                                                // extension is not allowed
-                                                toastr.error('Only JPG, PNG or GIF files are allowed');
-                                                return false;
-                                            }
-                                        },
-                                        onComplete: function (file, response) {
-                                            $("#upload_image1").html("");
-                                            //Add uploaded file to list
-                                            if (response != "error") {
-                                                $('#image').val(response);
-                                                $('#upload_image1').html('<img id="wizardPicturePreview" height="200px" title="" class="item-img" src="<?php echo base_url(); ?>uploads/' + response + '"  />');
+                    //upload image 1
+                    $(function() {
+                        var btnUpload = $('#upload_image1');
+                        new AjaxUpload(btnUpload, {
+                            action: '<?php echo site_url(); ?>/items/upload_image',
+                            name: 'uploadfile',
+                            onSubmit: function(file, ext) {
+                                if (!(ext && /^(jpg|png|jpeg|gif)$/.test(ext))) {
+                                    // extension is not allowed
+                                    toastr.error('Only JPG, PNG or GIF files are allowed');
+                                    return false;
+                                }
+                            },
+                            onComplete: function(file, response) {
+                                $("#upload_image1").html("");
+                                //Add uploaded file to list
+                                if (response != "error") {
+                                    $('#image').val(response);
+                                    $('#upload_image1').html('<img id="wizardPicturePreview" height="200px" title="" class="item-img" src="<?php echo base_url(); ?>uploads/' + response + '"  />');
 
-                                            }
-                                        }
-                                    });
+                                }
+                            }
+                        });
 
-                                });
+                    });
 
-                                //upload image 2
-                                $(function () {
-                                    var btnUpload = $('#upload_image2');
-                                    new AjaxUpload(btnUpload, {
-                                        action: '<?php echo site_url(); ?>/items/upload_image',
-                                        name: 'uploadfile',
-                                        onSubmit: function (file, ext) {
-                                            if (!(ext && /^(jpg|png|jpeg|gif)$/.test(ext))) {
-                                                // extension is not allowed
-                                                toastr.error('Only JPG, PNG or GIF files are allowed');
-                                                return false;
-                                            }
-                                        },
-                                        onComplete: function (file, response) {
-                                            $("#upload_image2").html("");
-                                            //Add uploaded file to list
-                                            if (response != "error") {
-                                                $('#image2').val(response);
-                                                $('#upload_image2').html('<img id="wizardPicturePreview2" height="200px" title="" class="item-img" src="<?php echo base_url(); ?>uploads/' + response + '"  />');
+                    //upload image 2
+                    $(function() {
+                        var btnUpload = $('#upload_image2');
+                        new AjaxUpload(btnUpload, {
+                            action: '<?php echo site_url(); ?>/items/upload_image',
+                            name: 'uploadfile',
+                            onSubmit: function(file, ext) {
+                                if (!(ext && /^(jpg|png|jpeg|gif)$/.test(ext))) {
+                                    // extension is not allowed
+                                    toastr.error('Only JPG, PNG or GIF files are allowed');
+                                    return false;
+                                }
+                            },
+                            onComplete: function(file, response) {
+                                $("#upload_image2").html("");
+                                //Add uploaded file to list
+                                if (response != "error") {
+                                    $('#image2').val(response);
+                                    $('#upload_image2').html('<img id="wizardPicturePreview2" height="200px" title="" class="item-img" src="<?php echo base_url(); ?>uploads/' + response + '"  />');
 
-                                            }
-                                        }
-                                    });
+                                }
+                            }
+                        });
 
-                                });
+                    });
 
-                                //upload image 3
-                                $(function () {
-                                    var btnUpload = $('#upload_image3');
-                                    new AjaxUpload(btnUpload, {
-                                        action: '<?php echo site_url(); ?>/items/upload_image',
-                                        name: 'uploadfile',
-                                        onSubmit: function (file, ext) {
-                                            if (!(ext && /^(jpg|png|jpeg|gif)$/.test(ext))) {
-                                                // extension is not allowed
-                                                toastr.error('Only JPG, PNG or GIF files are allowed');
-                                                return false;
-                                            }
-                                        },
-                                        onComplete: function (file, response) {
-                                            $("#upload_image3").html("");
-                                            //Add uploaded file to list
-                                            if (response != "error") {
-                                                $('#image3').val(response);
-                                                $('#upload_image3').html('<img id="wizardPicturePreview3" height="200px" title="" class="item-img" src="<?php echo base_url(); ?>uploads/' + response + '"  />');
+                    //upload image 3
+                    $(function() {
+                        var btnUpload = $('#upload_image3');
+                        new AjaxUpload(btnUpload, {
+                            action: '<?php echo site_url(); ?>/items/upload_image',
+                            name: 'uploadfile',
+                            onSubmit: function(file, ext) {
+                                if (!(ext && /^(jpg|png|jpeg|gif)$/.test(ext))) {
+                                    // extension is not allowed
+                                    toastr.error('Only JPG, PNG or GIF files are allowed');
+                                    return false;
+                                }
+                            },
+                            onComplete: function(file, response) {
+                                $("#upload_image3").html("");
+                                //Add uploaded file to list
+                                if (response != "error") {
+                                    $('#image3').val(response);
+                                    $('#upload_image3').html('<img id="wizardPicturePreview3" height="200px" title="" class="item-img" src="<?php echo base_url(); ?>uploads/' + response + '"  />');
 
-                                            }
-                                        }
-                                    });
+                                }
+                            }
+                        });
 
-                                });
+                    });
                             </script>
                             <div class="col-md-4">
                                 <div class="form-group">
@@ -227,7 +235,7 @@
                                 </div>
                                 <input type="hidden" id="image3" class="form-control" name="image3" value="default.jpg"/>
                             </div>
-                            
+
 
                         </div>
                     </div>
@@ -244,7 +252,7 @@
 
 
 <script type="text/javascript">
-    $(document).ready(function ($) {
+    $(document).ready(function($) {
 
         //add new item form validation
         $("#add_item_form").validate({
@@ -254,12 +262,12 @@
                 des: "required",
                 colour: "required",
                 price: {
-                    required:true,
-                    number:true
+                    required: true,
+                    number: true
                 }
             },
-            submitHandler: function (form) {
-                $.post(site_url + '/items/save_item', $('#add_item_form').serialize(), function (msg) {
+            submitHandler: function(form) {
+                $.post(site_url + '/items/save_item', $('#add_item_form').serialize(), function(msg) {
                     if (msg == 1) {
                         toastr.success("Successfully saved !!", "Jäger");
                         location.reload();
@@ -277,7 +285,7 @@
     //Edit Item
     function edit_item(item_id) {
 
-        $.post(site_url + '/items/load_edit_item_content', {item_id: item_id}, function (msg) {
+        $.post(site_url + '/items/load_edit_item_content', {item_id: item_id}, function(msg) {
 
             $('#item_edit_content').html('');
             $('#item_edit_content').html(msg);
@@ -290,31 +298,31 @@
     function delete_item(id) {
 
         swal({
-                title: "Are you sure?",
-                text: "You want to delete this Item?",
-                type: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#1abc9c",
-                confirmButtonText: "Yes, delete it!",
-                closeOnConfirm: false
-            },
-            function () {
+            title: "Are you sure?",
+            text: "You want to delete this Item?",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#1abc9c",
+            confirmButtonText: "Yes, delete it!",
+            closeOnConfirm: false
+        },
+        function() {
 
-                $.ajax({
-                    type: "POST",
-                    url: site_url + '/items/delete_item',
-                    data: "id=" + id,
-                    success: function (msg) {
-                        if (msg == 1) {
-                            $('#item_' + id).hide();
-                            swal("Deleted!", "Your item has been deleted.", "success");
-                        }
-                        else if (msg == 2) {
-                            swal("Error!", "Cannot be deleted as it is already assigned.", "error");
-
-                        }
+            $.ajax({
+                type: "POST",
+                url: site_url + '/items/delete_item',
+                data: "id=" + id,
+                success: function(msg) {
+                    if (msg == 1) {
+                        $('#item_' + id).hide();
+                        swal("Deleted!", "Your item has been deleted.", "success");
                     }
-                });
+                    else if (msg == 2) {
+                        swal("Error!", "Cannot be deleted as it is already assigned.", "error");
+
+                    }
+                }
             });
+        });
     }
 </script>

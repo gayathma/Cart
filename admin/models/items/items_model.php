@@ -13,12 +13,22 @@ class Items_model extends CI_Model
     var $ItemImg2;
     var $ItemImg3;
     var $ItemSize;
+    var $ItemFor;
 
     function __construct()
     {
         parent::__construct();
     }
+    
+    public function get_ItemFor() {
+        return $this->ItemFor;
+    }
 
+    public function set_ItemFor($ItemFor) {
+        $this->ItemFor = $ItemFor;
+    }
+
+    
     function get_ItemID() {
         return $this->ItemID;
     }

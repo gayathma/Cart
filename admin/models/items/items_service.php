@@ -42,7 +42,8 @@ class Items_service extends CI_Model
             'ItemSize' => $item_model->get_ItemSize(),
             'ItemImg' => $item_model->get_ItemImg(),
             'ItemImg2' => $item_model->get_ItemImg2(),
-            'ItemImg3' => $item_model->get_ItemImg3()
+            'ItemImg3' => $item_model->get_ItemImg3(),
+            'ItemFor' => $item_model->get_ItemFor()
         );
 
         $this->db->where('ItemID', $item_model->get_ItemID());

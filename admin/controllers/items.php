@@ -4,35 +4,28 @@ if (!defined('BASEPATH')) {
     exit('No direct script access allowed');
 }
 
-class Items extends CI_Controller
-{
+class Items extends CI_Controller {
 
-    function __construct()
-    {
+    function __construct() {
         parent::__construct();
-
-        if (!$this->session->userdata('USER_LOGGED_IN')) {
-            redirect(site_url() . '/login/load_login');
-        } else {
+        
+        
             $this->load->model('items/items_model');
             $this->load->model('items/items_service');
-
-        }
+        
     }
 
-    public function manage_items()
-    {
+    public function manage_items() {
         $item_service = new Items_service();
 
-        $data['items']      = $item_service->get_items();
-        $partials = array('content' => 'items/item_list'); //load the view
+        $data['items'] = $item_service->get_items();
+        $partials      = array('content' => 'items/item_list'); //load the view
         $this->template->load('template/main_template', $partials, $data); //load teh template
     }
 
-    function save_item()
-    {
+    function save_item() {
 
-        $item_model = new Items_model();
+        $item_model   = new Items_model();
         $item_service = new Items_service();
 
         $item_model->set_ItemName($this->input->post('name', TRUE));
@@ -43,8 +36,21 @@ class Items extends CI_Controller
         $item_model->set_ItemType($this->input->post('colour', TRUE));
         $item_model->set_ItemImg2($this->input->post('image2', TRUE));
         $item_model->set_ItemImg3($this->input->post('image3', TRUE));
-        $sizes = (!empty($this->input->post('size', TRUE)))? implode(',', $this->input->post('size', TRUE)) : '';
+        $sizes = '';
+        if(!is_null($this->input->post('size', TRUE))){
+            $sizes = implode(',', $this->input->post('size', TRUE));
+        } else {
+            $sizes = '';
+        }
+
         $item_model->set_ItemSize($sizes);
+        $t_user = '';
+        if(!is_null($this->input->post('type_b', TRUE))){ 
+            $t_user = implode(',', $this->input->post('type_b', TRUE));
+        }else{
+            $t_user = '';
+        }
+        $item_model->set_ItemFor($t_user);
 
         echo $item_service->save_item($item_model);
     }
@@ -52,8 +58,7 @@ class Items extends CI_Controller
     /**
      * This is to delete a item
      */
-    function delete_item()
-    {
+    function delete_item() {
 
         $item_service = new Items_service();
 
@@ -63,12 +68,11 @@ class Items extends CI_Controller
     /**
      * Edit item pop up content set up and then send .
      */
-    function load_edit_item_content()
-    {
+    function load_edit_item_content() {
         $item_service = new Items_service();
 
-        $data['item']       = $item_service->get_item_by_id(
-            trim($this->input->post('item_id', TRUE))
+        $data['item'] = $item_service->get_item_by_id(
+                trim($this->input->post('item_id', TRUE))
         );
 
         echo $this->load->view('items/edit_item', $data, TRUE);
@@ -78,10 +82,9 @@ class Items extends CI_Controller
      * This function is to update the item
      */
 
-    function edit_item()
-    {
+    function edit_item() {
 
-        $item_model = new Items_model();
+        $item_model   = new Items_model();
         $item_service = new Items_service();
 
         $item_model->set_ItemID($this->input->post('item_id', TRUE));
@@ -93,14 +96,25 @@ class Items extends CI_Controller
         $item_model->set_ItemType($this->input->post('colour', TRUE));
         $item_model->set_ItemImg2($this->input->post('image2', TRUE));
         $item_model->set_ItemImg3($this->input->post('image3', TRUE));
-        $sizes = (!empty($this->input->post('size', TRUE)))? implode(',', $this->input->post('size', TRUE)) : '';
+        $sizes = '';
+        if(!is_null($this->input->post('size', TRUE))){
+            $sizes = implode(',', $this->input->post('size', TRUE));
+        } else {
+            $sizes = '';
+        }
+
         $item_model->set_ItemSize($sizes);
+        $t_user = '';
+        if(!is_null($this->input->post('type_b', TRUE))){ 
+            $t_user = implode(',', $this->input->post('type_b', TRUE));
+        }else{
+            $t_user = '';
+        }
+        $item_model->set_ItemFor($t_user);
 
 
         echo $item_service->update_item($item_model);
     }
-
-   
 
     function upload_image() {
 
