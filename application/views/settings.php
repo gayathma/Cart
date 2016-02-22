@@ -121,7 +121,7 @@
                             <div class="tab-pane fade in active" id="tab_a">
                                 <table class="table">
                                     <tbody>
-                                        <?php 
+                                        <?php
                                         if($historyData){
                                             foreach ($historyData as $item) {
                                                 $likes_count = $this->item_shop->GetItemLikesCount($item['ItemID']);
@@ -136,9 +136,9 @@
                                                         <a href="#" id="<?php echo $item['ItemID'];?>" class="items"><span class="pull-right"><img src="<?php echo base_url("img/heart-icon.png") ?>" alt="" data-toggle="tooltip" data-placement="bottom" title="<?php echo  $likes_count ;?>"></span></a>
                                                     </td>
                                                 </tr>
-                                                <?php 
+                                                <?php
                                             }
-                                        }else{ 
+                                        }else{
                                             ?>
                                             <tr>
                                                 <td colspan="4">No results found</td>
@@ -235,12 +235,15 @@
                                                                 </div>
                                                             </div>
                                                             <div class="form-group">
+                                                              <div class="row">
                                                                 <label class="col-lg-2 control-label"></label>
                                                                 <label class="col-lg-1 control-label"></label>
-                                                                <div class="col-lg-2">
+                                                              </div>
+
+                                                                <div class="col-xs-6 col-lg-2">
                                                                     <button type="submit" id="activate-step-3" class="btn btn-primary square-btn pull-left">Save Changes</button>
                                                                 </div>
-                                                                <div class="col-lg-2">
+                                                                <div class="col-xs-6 col-lg-2">
                                                                     <a   id="activate-step-3" class="btn btn-primary square-btn pull-left" href="<?php echo site_url() . '/shop' ?>">Cancel</a>
                                                                 </div>
                                                             </div>

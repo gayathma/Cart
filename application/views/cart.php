@@ -186,14 +186,14 @@
                                     <td data-th = "Quantity">
                                         <input type = "number" class = "form-control text-center" value="<?php echo  $its['Qty']; ?>" onchange="updateQty(this,'<?php echo $its['CartItemID'];?>')">
                                     </td>
-                                    <td data-th = "Subtotal" class = "text-center">Rs. <?php echo $its['ItemPrice'] * $its['Qty'];?></td>
+                                    <td data-th = "Subtotal">Rs. <?php echo $its['ItemPrice'] * $its['Qty'];?></td>
                                     <td class = "actions text-center" data-th = "">
                                         <button class = "btn btn-danger btn-sm square-btn-small" onclick="deleteItems(<?php echo $its['CartItemID'];?>)"><i class = "fa fa-trash-o"></i></button>
                                     </td>
                                 </tr>
-                                <?php  
+                                <?php
                             }
-                        } else{ 
+                        } else{
                             ?>
                             <tr>
                                 <td colspan="4">Cart is empty</td>
@@ -208,7 +208,7 @@
                                 <td><a href="<?php echo site_url() . '/shop' ?>"><button class="square-btn pull-left"><i class="fa fa-angle-left"></i> &nbsp Shop More</button></a></td>
                                 <td colspan="2" class="hidden-xs"></td>
                                 <td class="hidden-xs text-center"><h4>Total Rs. <?php echo $tot;?></h4></td>
-                                <td><a href="#"><button id="activate-step-2" class="square-btn pull-left">Checkout  &nbsp <i class="fa fa-angle-right"></i></button></a></td>
+                                <td><a href="#"><button id="activate-step-2" class="square-btn pull-right">Checkout  &nbsp <i class="fa fa-angle-right"></i></button></a></td>
                             </tr>
                         </tfoot>
                     </table>
