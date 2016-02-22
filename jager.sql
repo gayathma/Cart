@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 22, 2016 at 05:47 PM
+-- Generation Time: Feb 22, 2016 at 06:49 PM
 -- Server version: 5.5.27
 -- PHP Version: 5.4.7
 
@@ -88,7 +88,33 @@ CREATE TABLE IF NOT EXISTS `item_likes` (
   `UserID` int(11) NOT NULL,
   `Status` enum('1','0') NOT NULL DEFAULT '1',
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=21 ;
+
+--
+-- Dumping data for table `item_likes`
+--
+
+INSERT INTO `item_likes` (`ID`, `ItemID`, `UserID`, `Status`) VALUES
+(1, 1, 1, '1'),
+(2, 1, 2, '1'),
+(3, 1, 3, '1'),
+(4, 1, 4, '1'),
+(5, 1, 5, '1'),
+(6, 1, 6, '1'),
+(7, 1, 7, '1'),
+(8, 1, 8, '1'),
+(9, 1, 9, '1'),
+(10, 1, 10, '1'),
+(11, 2, 1, '1'),
+(12, 2, 2, '1'),
+(13, 2, 3, '1'),
+(14, 2, 4, '1'),
+(15, 2, 5, '1'),
+(16, 2, 6, '1'),
+(17, 2, 7, '1'),
+(18, 2, 8, '1'),
+(19, 2, 9, '1'),
+(20, 2, 10, '1');
 
 -- --------------------------------------------------------
 
@@ -108,7 +134,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `status` enum('1','0') DEFAULT '0',
   PRIMARY KEY (`UserID`),
   UNIQUE KEY `Email_UNIQUE` (`Email`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `user`
