@@ -13,6 +13,18 @@ Class User extends CI_Model {
             return FALSE;
         }
     }
+    
+    public function checkUserName($email) {
+        $this->db->select("*")->from("user")->where(array("Email" => $email));
+        $query = $this->db->get();
+        $count = $query->num_rows();
+
+        if ($count == 1) {
+            return $query->row_array();
+        } else {
+            return FALSE;
+        }
+    }
 
     public function getUserDataFromID($userID) {
         $this->db->select("*")->from("user")->where("UserID", $userID);

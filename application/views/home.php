@@ -92,6 +92,18 @@
                             </div>
                         </div>
                     </div>
+                    <div class="box">
+                        <div class="content chkForgotBox" style="display:none;">
+                            <div class="form">
+                                <form method="post" html="{:multipart=>true}" data-remote="true" action="/register" accept-charset="UTF-8" id="check-forgot-form">
+                                    <div class="form-group">
+                                        <input id="email_for" class="form-control tee-text-light RegEmail" type="text" placeholder="Email" name="email_for">
+                                    </div>
+                                    <button type="button" class="btn btn-primary square-btn-long" value="Forgot" onclick="ForgotAjax()">Reset</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <div class="forgot login-footer">
@@ -109,8 +121,8 @@
         </div>
     </div>
     <script type="text/javascript">
-                  var base_url = "<?php echo base_url(); ?>";
-                  var site_url = "<?php echo site_url(); ?>";
+                        var base_url = "<?php echo base_url(); ?>";
+                        var site_url = "<?php echo site_url(); ?>";
 
     </script>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -124,29 +136,36 @@
     <script src="<?php echo base_url("js/jquery.validate.min.js"); ?>"></script>
     <script src="<?php echo base_url("js/login-register.js"); ?>"></script>
     <script type="text/javascript">
-$(document).ready(function ($) {
-    $("#login_form").validate({
-        rules: {
-            email: "required",
-            password: "required"
-        }
-    });
+        $(document).ready(function($) {
+            
+            $("#check-forgot-form").validate({
+                rules: {
+                    email_for: "required"
+                }
+            });
+            
+            $("#login_form").validate({
+                rules: {
+                    email: "required",
+                    password: "required"
+                }
+            });
 
-    $("#register-form").validate({
-        rules: {
-            email: "required",
-            password:  {
-                required: true,
-                minlength: 8
-            },
-            password_confirmation: {
-                required: true,
-                minlength: 8,
-                equalTo: $('#password_re')
-            }
-        }
-    });
-});
-</script>
+            $("#register-form").validate({
+                rules: {
+                    email: "required",
+                    password: {
+                        required: true,
+                        minlength: 8
+                    },
+                    password_confirmation: {
+                        required: true,
+                        minlength: 8,
+                        equalTo: $('#password_re')
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html>

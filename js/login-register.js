@@ -21,11 +21,22 @@ function showLoginForm() {
     $('#loginModal .registerBox').fadeOut('fast', function() {
         $('.loginBox').fadeIn('fast');
         $('.log-box').fadeIn('fast');
+        $('.chkForgotBox').fadeOut('fast');
         $('.register-footer').fadeOut('fast', function() {
             $('.login-footer').fadeIn('fast');
         });
 
         $('.modal-title').html('Login');
+    });
+    $('.error').removeClass('alert alert-danger').html('');
+}
+function showForgotForm() {
+     $('.loginBox').fadeOut('fast', function() {
+        $('.chkForgotBox').fadeIn('fast');
+        $('.login-footer').fadeOut('fast', function() {
+            $('.register-footer').fadeIn('fast');
+        });
+        $('.modal-title').html('Forgot Password');
     });
     $('.error').removeClass('alert alert-danger').html('');
 }
@@ -43,6 +54,30 @@ function openRegisterModal() {
         $('#loginModal').modal('show');
     }, 230);
 
+}
+function ForgotAjax() {
+    var Email = $("#email_for").val();
+
+    if($('#check-forgot-form').valid()){
+        $.ajax({
+            type: "POST",
+            dataType: "text",
+            url: site_url + "/home/checkUserName", //Relative or absolute path to response.php file
+            data: {
+                active: 'ok',
+                email: Email
+            },
+            success: function(data) {
+                if (data === "failed") {
+                    $('.error').addClass('alert alert-danger').html("Sorry this username is not exist");
+                    shakeModal();
+                } else {
+                    $('.error').removeClass('alert alert-danger');
+                    $('.error').addClass('alert alert-success').html("Reset Your Password through the link in email");
+                }
+            }
+        });
+    }
 }
 
 function loginAjax() {

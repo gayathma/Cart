@@ -75,6 +75,20 @@ class Home extends CI_Controller {
             
         }
     }
+    
+    public function checkUserName() {
+        if ($this->input->post('active') == "ok") {
+            $email = $this->input->post('email');
+            $checkUser = $this->user->checkUserName($email);
+            if ($checkUser) {
+                echo 'ok';
+            } else {
+                echo 'failed';
+            }
+        } else {
+            
+        }
+    }
 
     public function logout() {
         if ($this->session->userdata("status")) {
