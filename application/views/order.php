@@ -230,7 +230,7 @@
           <a href="https://www.facebook.com/JagerClothing"><i id="social" class="fa fa-facebook"></i></a>
           <a href="https://twitter.com/JagerClothing"><i id="social" class="fa fa-twitter"></i></a>
           <a href="https://plus.google.com/JagerClothing"><i id="social" class="fa fa-google-plus"></i></a>
-          <a href="mailto:JagerClothing@gmail.com"><i id="social" class="fa fa-envelope"></i></a>
+          <a href="mailto:jagerclothing@gmail.com"><i id="social" class="fa fa-envelope"></i></a>
         </section>
       </div>
     </div>
