@@ -347,6 +347,10 @@
                             $type = "check3";
                         } else if ($itemColor == 'white') {
                             $type = "check4";
+                        }else if ($itemColor == 'purple') {
+                            $type = "check5";
+                        }else if ($itemColor == 'brown') {
+                            $type = "check6";
                         }
 
                         if($count <= 5){

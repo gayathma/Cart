@@ -9,6 +9,7 @@ class Shop extends CI_Controller {
         parent::__construct();
         $this->load->model('item_shop');
         $this->load->model('cart_data');
+        $this->load->library('email');
         $this->load->library('pagination_custom');
     }
 
@@ -45,7 +46,7 @@ class Shop extends CI_Controller {
     public function addLikes() {
         if ($this->session->userdata("user_id") != "") {
             $item_id = $this->input->post('item_id');
-            if($this->item_shop->GetItemLikesCountForUser($item_id, $this->session->userdata("user_id")) > 0) {
+            if ($this->item_shop->GetItemLikesCountForUser($item_id, $this->session->userdata("user_id")) > 0) {
                 echo $this->item_shop->deleteLike($item_id, $this->session->userdata("user_id"));
             } else {
                 $data = array(
@@ -68,11 +69,18 @@ class Shop extends CI_Controller {
             $this->load->view('register');
         }
     }
-    
-    public function orderSend(){
+
+    public function orderSend() {
+        $headers = 'MIME-Version: 1.0' . "\r\n";
+        $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+        $headers .= 'From: Jager <thularaofficial@gmail.com>' . "\r\n";
         
+        $msg = '';
+        
+        mail('thularaofficial@gmail.com', 'Custom Order', $msg, $headers);
+
+        echo '1';
     }
-            
 
 }
 

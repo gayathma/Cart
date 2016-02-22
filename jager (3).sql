@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 22, 2016 at 05:09 PM
+-- Generation Time: Feb 22, 2016 at 05:47 PM
 -- Server version: 5.5.27
 -- PHP Version: 5.4.7
 
@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS `item` (
   `ItemSize` varchar(255) NOT NULL,
   `ItemFor` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`ItemID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
 
 --
 -- Dumping data for table `item`
@@ -66,7 +66,15 @@ INSERT INTO `item` (`ItemID`, `ItemName`, `ItemPrice`, `ItemDes`, `ItemTitle`, `
 (1, 'Gorilla T-shirt', '1000', '<p>The unisex T-shirt of the US cult brand from California comes around in a super trendy heather look. The blended fabrics combine durability with silky smooth comfort wear.</p><ul><li>Unisex tailoring fits men rather tight and women more loosely (when in doubt, choose a size bigger or smaller)</li><li>Light, super smooth fabrics 108g/m²</li><li>Material: 50% polyester, 25% cotton, 25% rayon</li></ul>', 'gorilla t shirt cheap', 'default.jpg', 'Green', 'default.jpg', 'default.jpg', 'S,M', 'Girls,Guys'),
 (2, 'Hasitha T shirt ', '1200', '<p>industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make.</p><ul><li>Unisex tailoring fits men rather tight and women more loosely (when in doubt, choose a size bigger or smaller)</li><li>Light, super smooth fabrics 108g/m²</li><li>Material: 50% polyester, 25% cotton, 25% rayon</li></ul>', 't shirt by hasitha priyasad', 'it1455859636-img-4.jpg', 'Black', 'it1455859645-img-5.jpg', 'it1455859650-img-6.jpg', 'S,M,L,XL', NULL),
 (3, 'Thulara T shirt ', '1400', '<p>industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make.</p><ul><li>Unisex tailoring fits men rather tight and women more loosely (when in doubt, choose a size bigger or smaller)</li><li>Light, super smooth fabrics 108g/m²</li><li>Material: 50% polyester, 25% cotton, 25% rayon</li></ul>', 'thulara t shirt company', 'default.jpg', 'Red', 'default.jpg', 'default.jpg', 'S,M', NULL),
-(4, 'Jager t shirt ', '2400', '<p>industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make.</p><ul><li>Unisex tailoring fits men rather tight and women more loosely (when in doubt, choose a size bigger or smaller)</li><li>Light, super smooth fabrics 108g/m²</li><li>Material: 50% polyester, 25% cotton, 25% rayon</li></ul>', 'jager t shirt command', 'it1455860779-img-7.jpg', 'Red', 'it1455860785-img-8.jpg', 'it1455860791-img-9.jpg', 'S,M,L,XL', NULL);
+(4, 'Jager t shirt ', '2400', '<p>industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make.</p><ul><li>Unisex tailoring fits men rather tight and women more loosely (when in doubt, choose a size bigger or smaller)</li><li>Light, super smooth fabrics 108g/m²</li><li>Material: 50% polyester, 25% cotton, 25% rayon</li></ul>', 'jager t shirt command', 'it1455860779-img-7.jpg', 'Red', 'it1455860785-img-8.jpg', 'it1455860791-img-9.jpg', 'S,M,L,XL', NULL),
+(5, 'Contrary to popula', '2000', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Contrary to popula', 'it1456158966-img-9.jpg', 'Green', 'default.jpg', 'default.jpg', 'S,M,L,XL', 'Guys'),
+(6, 'the printing ', '2400', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ', 'the printing ', 'it1456159133-img-12.jpg', 'Black', 'default.jpg', 'default.jpg', 'S,M', 'Guys'),
+(7, 'the printing 2', '2400', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ', 'the printing ', 'it1456159205-img-11.jpg', 'White', 'default.jpg', 'default.jpg', 'S,M', 'Guys'),
+(8, 'the printing 3', '2400', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ', 'the printing ', 'it1456159246-img-10.jpg', 'White', 'default.jpg', 'default.jpg', 'S,M,L,XL', 'Guys'),
+(9, 'the printing 4', '2400', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ', 'the printing 4', 'it1456159285-img-9.jpg', 'Purple', 'default.jpg', 'default.jpg', 'S,M', 'Guys'),
+(10, 'the printing 5', '2200', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ', 'the printing 5', 'it1456159325-img-6.jpg', 'Purple', 'default.jpg', 'default.jpg', 'S,M,L,XL', 'Guys'),
+(11, 'the printing 6', '2200', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ', 'the printing 6', 'it1456159561-img-5.jpg', 'Brown', 'default.jpg', 'default.jpg', 'S,M,L,XL', 'Girls'),
+(12, 'the printing 7', '2200', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ', 'the printing 7', 'it1456159598-img-1.jpg', 'Brown', 'default.jpg', 'default.jpg', 'S,M,L,XL', 'Girls');
 
 -- --------------------------------------------------------
 

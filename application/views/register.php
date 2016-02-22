@@ -95,6 +95,7 @@
                     </div>
                     <div class="modal-footer">
                         <div class="forgot login-footer" style="display:none">
+                            <a href="javascript: showForgotForm();">Forgot Password</a></br>
                             <span>Looking to
                                 <a href="javascript: showRegisterForm();">create an account</a>
                                 ?</span>
