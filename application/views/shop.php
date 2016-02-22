@@ -370,7 +370,7 @@
                         echo '<li class="mix '.$top_cls.' '.$new_cls.' ' . $type . ' radio2 option3 cd-item '.$t_cls.'">';
                         echo '<a href="' . site_url() . "/shop/buy/" . $i['ItemID'] . "/" . $finalTitle . "" . '"><img src="' . base_url().'/uploads/'.$i['ItemImg'] . '" alt="Image 1" class="thumb img-responsive"><div class="price"></a>';
                         echo '<section class="tee-sum">';
-                        echo '<span style="width:100%; display:block;"><a href="' . site_url() . "/shop/buy/" . $i['ItemID'] . "/" . $finalTitle . "" . '">'.$i['ItemName'] .'</a></span>';
+                        echo '<span style="width:100%; display:block;"><a class="title_cus" href="' . site_url() . "/shop/buy/" . $i['ItemID'] . "/" . $finalTitle . "" . '">'.$i['ItemName'] .'</a></span>';
                         echo '<span class="pull-left">';
                         echo '<span class="pull-left"><span>Rs. ' . $i['ItemPrice'] . '</span></span>';
                         echo '</span>';
@@ -384,15 +384,7 @@
             <input type="hidden" name="session_user_id" id="session_user_id" value="<?php echo $this->session->userdata("user_id");?>"/>
         </section>
 
-        <section class="container">
-            <section class="row">
-                <div class="text-center">
-                    <ul class="pagination">
-                        <?php echo $links; ?>
-                    </ul>
-                </div>
-            </section>
-        </section>
+
 
     </main>
 

@@ -113,9 +113,10 @@ jQuery(document).ready(function($){
 	    	if ((inputText.length) > 0) {            
 	      		$('.mix').each(function() {
 		        	var $this = $(this);
-		        
+                                var titl = $(this).find('.title_cus');
+
 		        	// add item to be filtered out if input text matches items inside the title   
-		        	if($this.attr('class').toLowerCase().match(inputText)) {
+		        	if(titl.html().toLowerCase().match(inputText)) {
 		          		$matching = $matching.add(this);
 		        	} else {
 		          		// removes any previously matched item
