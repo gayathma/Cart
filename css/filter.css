@@ -261,7 +261,7 @@ xgallery
   }
   .cd-gallery li {
     width: 23%;
-    margin: 0 1%;
+    margin: 20px 1%;
   }
   .cd-gallery.filter-is-visible {
     /* reduce width when filter is visible */
