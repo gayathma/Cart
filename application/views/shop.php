@@ -67,7 +67,7 @@
                                         echo $this->session->userdata('email');
                                     }
                                 } else {
-                                    
+
                                 }
                                 ?>
                             </a> <!--maximum characters for username = 15-->
@@ -89,7 +89,7 @@
                                     $cart_class = '';
                                 }
                             } else {
-                                
+
                             }
                             ?>
                         </li>
@@ -352,20 +352,20 @@
                         }
 
                         if($count <= 5){
-                            $new_cls =  "color-1";   
+                            $new_cls =  "color-1";
                         }
 
                         if($likes_count >= 50){
-                            $top_cls =  "color-2";   
+                            $top_cls =  "color-2";
                         }
-                        
+
                         if($i['ItemFor'] == 'Guys'){
                             $t_cls = 'check7';
                         }else if($i['ItemFor'] == 'Girls'){
                             $t_cls = 'check8';
                         }else if($i['ItemFor'] == 'Girls,Guys'){
                             $t_cls = 'check7 check8';
-                        }     
+                        }
 
                         echo '<li class="mix '.$top_cls.' '.$new_cls.' ' . $type . ' radio2 option3 cd-item '.$t_cls.'">';
                         echo '<a href="' . site_url() . "/shop/buy/" . $i['ItemID'] . "/" . $finalTitle . "" . '"><img src="' . base_url().'/uploads/'.$i['ItemImg'] . '" alt="Image 1" class="thumb img-responsive"><div class="price"></a>';
@@ -403,10 +403,10 @@
             </p>
 
             <section class="social pull-right">
-                <a href="https://www.facebook.com/bootsnipp"><i id="social" class="fa fa-facebook"></i></a>
-                <a href="https://twitter.com/bootsnipp"><i id="social" class="fa fa-twitter"></i></a>
-                <a href="https://plus.google.com/+Bootsnipp-page"><i id="social" class="fa fa-google-plus"></i></a>
-                <a href="mailto:bootsnipp@gmail.com"><i id="social" class="fa fa-envelope"></i></a>
+              <a href="https://www.facebook.com/JagerClothing"><i id="social" class="fa fa-facebook"></i></a>
+              <a href="https://twitter.com/JagerClothing"><i id="social" class="fa fa-twitter"></i></a>
+              <a href="https://plus.google.com/JagerClothing"><i id="social" class="fa fa-google-plus"></i></a>
+              <a href="mailto:JagerClothing@gmail.com"><i id="social" class="fa fa-envelope"></i></a>
             </section>
         </div></div>
 
@@ -430,7 +430,7 @@
             $("#responsive-heading").fitText(1.1, { minFontSize: '40px', maxFontSize: '60px' });
             $("#responsive-sub-heading").fitText(1.1, { minFontSize: '40px', maxFontSize: '75px' });
             $(document).ready(function() {
-               
+
                 $('[data-toggle="tooltip"]').tooltip();
 
                 if (($(window).height() + 1000) < $(document).height()) {
