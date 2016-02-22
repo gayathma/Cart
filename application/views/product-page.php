@@ -193,12 +193,10 @@
 
                                 <ol class="carousel-indicators">
                                     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                                    <li data-target="#myCarousel" data-slide-to="1"></li>
                                 </ol>
-
                                 <!-- Carousel items -->
                                 <div class="carousel-inner">
-                                    <div class="item ">
+                                    <div class="item active">
                                         <div class="row">
                                             <?php
                                             $i = 0;
@@ -214,7 +212,7 @@
                                             $itemID = $it['ItemID'];
                                             $trimTitle = trim($title);
                                             $finalTitle = str_replace(" ", "-", $trimTitle);
-                                            echo '<div class = "col-md-2 '.$cls.'"><a href = "'.  base_url('shop/buy/'.$itemID.'/'.$finalTitle).'" class = "thumbnail"><img src = "' .  base_url($it['ItemImg']). '" alt = "Image" style = "max-width:100%;" class = "img-responsive"/></a></div>';
+                                            echo '<div class = "col-md-2 '.$cls.'"><a href = "'. site_url().'/shop/buy/'.$itemID.'/'.$finalTitle.'" class = "thumbnail"><img src = "' .  base_url().'/uploads/'.$it['ItemImg']. '" alt = "Image" style = "max-width:100%;" class = "img-responsive"/></a></div>';
                                         }
                                         ?>
                                     </div><!--/row-fluid-->
