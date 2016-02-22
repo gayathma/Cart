@@ -53,7 +53,7 @@
                                     if ($this->session->userdata('first_name') != "") {
                                         echo $this->session->userdata('first_name');
                                     } else {
-                                        echo $this->session->userdata('email');
+                                        echo " ";
                                     }
                                 } else {
                                     echo "Guest";

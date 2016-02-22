@@ -32,7 +32,12 @@ class Settings extends CI_Controller {
                     "City" => $this->input->post('City'),
                     "password" => md5($this->input->post('password'))
                 );
-
+            $this->session->set_userdata(array(
+                        'user_id' => $this->session->userdata("user_id"),
+                        'email' => $this->session->userdata("email"),
+                        'first_name' => $this->input->post('FirstName'),
+                        'status' => TRUE
+                    ));
             echo $this->user->updateUserData($this->session->userdata("user_id"), $data);
         } else {
             $redirectto = $_SERVER['HTTP_REFERER'];

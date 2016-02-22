@@ -55,7 +55,7 @@
                                     if ($this->session->userdata('first_name') != "") {
                                         echo $this->session->userdata('first_name');
                                     } else {
-                                        echo $this->session->userdata('email');
+                                        echo " ";
                                     }
                                 } else {
                                     echo "Guest";
@@ -120,7 +120,7 @@
 
                         <div class="form-group">
                             <span>
-                                <input type="file"  accept="image/*" onchange="loadFile(event)" class="button upload-area" value="">
+                                <input type="file"  name="image" accept="image/*" onchange="loadFile(event)" class="button upload-area" value="">
                             </span>
                             <img id="output" class="img-preview"/>
                         </div>
@@ -260,7 +260,8 @@
                 details: "required",
                 qty: "required",
                 gender: "required",
-                body_type: "required"
+                body_type: "required",
+                image:"required"
             }
         });
 

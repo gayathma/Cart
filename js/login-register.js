@@ -58,7 +58,7 @@ function openRegisterModal() {
 function ForgotAjax() {
     var Email = $("#email_for").val();
 
-    if($('#check-forgot-form').valid()){
+    if(Email != ''){
         $.ajax({
             type: "POST",
             dataType: "text",
@@ -69,7 +69,7 @@ function ForgotAjax() {
             },
             success: function(data) {
                 if (data === "failed") {
-                    $('.error').addClass('alert alert-danger').html("Sorry this username is not exist");
+                    $('.error').addClass('alert alert-danger').html("Sorry this email does not exist");
                     shakeModal();
                 } else {
                     $('.error').removeClass('alert alert-danger');
@@ -77,6 +77,9 @@ function ForgotAjax() {
                 }
             }
         });
+    }else{
+         $('.error').addClass('alert alert-danger').html("Your Email is required");
+                    shakeModal();
     }
 }
 

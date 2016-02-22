@@ -62,7 +62,7 @@
                                     if ($this->session->userdata('first_name') != "") {
                                         echo $this->session->userdata('first_name');
                                     } else {
-                                        echo $this->session->userdata('email');
+                                        echo " ";
                                     }
                                 } else {
 
@@ -327,8 +327,9 @@
                 <div class="cd-fail-message">No results found</div>
                 <ul>
                     <?php
-                    $count = 1;
+                    $count = 0;
                     foreach ($items as $i) {
+                        ++$count;
                         $likes_count = $this->item_shop->GetItemLikesCount($i['ItemID']);
                         $title      = $i['ItemTitle'];
                         $trimTitle  = trim($title);
@@ -353,11 +354,11 @@
                             $type = "check6";
                         }
 
-                        if($count <= 5){
+                        if($count >= 5){
                             $new_cls =  "color-1";
                         }
 
-                        if($likes_count >= 50){
+                        if($likes_count >= 10){
                             $top_cls =  "color-2";
                         }
 
