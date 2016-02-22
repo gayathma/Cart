@@ -31,10 +31,26 @@ Class Item_shop extends CI_Model{
         $count = $query->num_rows();
         return $count;
     }
+    
+     public function GetItemLikesCountForUser($item_id,$user_id){
+        $this->db->select('*')->from('item_likes')->where(array("ItemID"=>$item_id, "Status"=>'1', "UserID" => $user_id));
+        $query = $this->db->get();
+        $count = $query->num_rows();
+        return $count;
+    }
 
     public function addLike($item_id, $data){
         $this->db->insert('item_likes', $data);
         $this->db->insert_id();
+
+        $this->db->select('*')->from('item_likes')->where(array("ItemID"=>$item_id, "Status"=>'1'));
+        $query = $this->db->get();
+        $count = $query->num_rows();
+        return $count;
+    }
+    
+    public function deleteLike($item_id, $user_id){
+        $this->db->delete('item_likes', array("ItemID" => $item_id, "UserID" => $user_id));
 
         $this->db->select('*')->from('item_likes')->where(array("ItemID"=>$item_id, "Status"=>'1'));
         $query = $this->db->get();

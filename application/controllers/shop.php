@@ -13,13 +13,13 @@ class Shop extends CI_Controller {
     }
 
     public function index($start = 0) {
-        $config = array();
-        $config["base_url"] = site_url() . "/shop/index/";
-        $config["per_page"] = 1;
+        $config                = array();
+        $config["base_url"]    = site_url() . "/shop/index/";
+        $config["per_page"]    = 1;
         $config["uri_segment"] = 3;
-        $config["num_links"] = 4;
+        $config["num_links"]   = 4;
 
-        $data['items'] = $this->item_shop->GetAllItems();
+        $data['items']        = $this->item_shop->GetAllItems();
         $config["total_rows"] = count($data['items']);
 
         $this->pagination_custom->initialize($config);
@@ -29,31 +29,33 @@ class Shop extends CI_Controller {
     }
 
     public function buy($id = "", $title = "") {
-        $title = str_replace("-", " ", $title);
+        $title     = str_replace("-", " ", $title);
         $trimTitle = trim($title);
-        $item = $this->item_shop->GetItem($id, $trimTitle);
+        $item      = $this->item_shop->GetItem($id, $trimTitle);
         if ($item) {
-            $data['item'] = $item;
-            $itemByType = $this->item_shop->GetItemByType($item['ItemType'],$item['ItemID']);
+            $data['item']       = $item;
+            $itemByType         = $this->item_shop->GetItemByType($item['ItemType'], $item['ItemID']);
             $data['itemByType'] = $itemByType;
-            $this->load->view('product-page',$data);
+            $this->load->view('product-page', $data);
         } else {
             redirect('/shop', 'location', 301);
         }
     }
 
-    public function addLikes(){
+    public function addLikes() {
         if ($this->session->userdata("user_id") != "") {
             $item_id = $this->input->post('item_id');
-
-            $data = array(
+            if($this->item_shop->GetItemLikesCountForUser($item_id, $this->session->userdata("user_id")) > 0) {
+                echo $this->item_shop->deleteLike($item_id, $this->session->userdata("user_id"));
+            } else {
+                $data = array(
                     "ItemID" => $item_id,
                     "UserID" => $this->session->userdata("user_id"),
                     "Status" => '1'
                 );
 
-            echo $this->item_shop->addLike($item_id,$data);
-
+                echo $this->item_shop->addLike($item_id, $data);
+            }
         } else {
             $this->load->view('register');
         }
