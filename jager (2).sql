@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 22, 2016 at 02:59 PM
+-- Generation Time: Feb 22, 2016 at 05:09 PM
 -- Server version: 5.5.27
 -- PHP Version: 5.4.7
 
@@ -35,14 +35,7 @@ CREATE TABLE IF NOT EXISTS `cart_item` (
   PRIMARY KEY (`CartItemID`),
   KEY `fk_cartitem_idx` (`ItemID`),
   KEY `fk_userid_idx` (`UserID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=32 ;
-
---
--- Dumping data for table `cart_item`
---
-
-INSERT INTO `cart_item` (`CartItemID`, `ItemID`, `Status`, `UserID`, `Qty`) VALUES
-(31, 4, 'pending', 3, '1');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -87,19 +80,7 @@ CREATE TABLE IF NOT EXISTS `item_likes` (
   `UserID` int(11) NOT NULL,
   `Status` enum('1','0') NOT NULL DEFAULT '1',
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
-
---
--- Dumping data for table `item_likes`
---
-
-INSERT INTO `item_likes` (`ID`, `ItemID`, `UserID`, `Status`) VALUES
-(1, 1, 1, '1'),
-(2, 1, 1, '1'),
-(3, 1, 1, '1'),
-(4, 1, 1, '1'),
-(5, 1, 1, '1'),
-(6, 2, 1, '1');
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -119,16 +100,15 @@ CREATE TABLE IF NOT EXISTS `user` (
   `status` enum('1','0') DEFAULT '0',
   PRIMARY KEY (`UserID`),
   UNIQUE KEY `Email_UNIQUE` (`Email`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`UserID`, `FirstName`, `LastName`, `Address`, `Country`, `City`, `Email`, `password`, `status`) VALUES
-(1, 'Thulara', 'Bethmage', '11/3 Janapriya lane', 'Sri lanka', 'Moratuwa', 'thularaofficial@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '1'),
-(3, NULL, NULL, NULL, NULL, NULL, 'gayas@gmail.com', '25f9e794323b453885f5181f1b624d0b', '0'),
-(4, NULL, NULL, NULL, NULL, NULL, 'gayathma3@gmail.com', '25f9e794323b453885f5181f1b624d0b', '0');
+(1, 'Thulara', 'Bethmage', '', 'Sri lanka', NULL, 'thularaofficial@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '1'),
+(2, 'Test', '', '', 'Sri lanka', NULL, 'test@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '1');
 
 --
 -- Constraints for dumped tables
