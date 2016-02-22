@@ -1,36 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Jäger Shopping Cart</title>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <title>Jäger Shopping Cart</title>
 
-    <!-- Bootstrap -->
-    <link href="<?php echo base_url("css/bootstrap.min.css"); ?>" rel="stylesheet">
-    <link href="<?php echo base_url("css/reset.css"); ?>" rel="stylesheet">
-    <link href="<?php echo base_url("css/main.css"); ?>" rel="stylesheet">
+        <!-- Bootstrap -->
+        <link href="<?php echo base_url("css/bootstrap.min.css"); ?>" rel="stylesheet">
+        <link href="<?php echo base_url("css/reset.css"); ?>" rel="stylesheet">
+        <link href="<?php echo base_url("css/main.css"); ?>" rel="stylesheet">
 
-    <link rel="stylesheet" href="<?php echo base_url("css/nav-animation.css"); ?>">
-    <link rel="stylesheet" href="<?php echo base_url("css/icon-effects.css"); ?>">
-    <link rel="stylesheet" href="<?php echo base_url("css/checkboxes.css"); ?>">
-    <link rel="stylesheet" href="<?php echo base_url("css/toastr.css"); ?>">
-    <link rel="stylesheet" href="<?php echo base_url("css/sweetalert.css"); ?>">
+        <link rel="stylesheet" href="<?php echo base_url("css/nav-animation.css"); ?>">
+        <link rel="stylesheet" href="<?php echo base_url("css/icon-effects.css"); ?>">
+        <link rel="stylesheet" href="<?php echo base_url("css/checkboxes.css"); ?>">
+        <link rel="stylesheet" href="<?php echo base_url("css/toastr.css"); ?>">
+        <link rel="stylesheet" href="<?php echo base_url("css/sweetalert.css"); ?>">
 
-    <link href="<?php echo base_url("css/flags.css"); ?>" rel="stylesheet">
+        <link href="<?php echo base_url("css/flags.css"); ?>" rel="stylesheet">
 
-    <script src="<?php echo base_url("js/modernizr.js"); ?>"></script> <!-- Modernizr -->
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <script src="<?php echo base_url("js/modernizr.js"); ?>"></script> <!-- Modernizr -->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
           <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
           <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
           <![endif]-->
 
-      </head>
-      <body class="site">
+    </head>
+    <body class="site">
 
         <section class="navbar navbar-default nav-background">
             <section class="container nav-section">
@@ -83,130 +83,136 @@
                                     $cart_class = '';
                                 }
                             } else {
-
+                                
                             }
                             ?>
-  <!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-  <ul class="dropdown-menu">
-    <li><a href="#">Action</a></li>
-    <li><a href="#">Another action</a></li>
-    <li><a href="#">Something else here</a></li>
-    <li role="separator" class="divider"></li>
-    <li><a href="#">Separated link</a></li>
+<!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+<ul class="dropdown-menu">
+<li><a href="#">Action</a></li>
+<li><a href="#">Another action</a></li>
+<li><a href="#">Something else here</a></li>
+<li role="separator" class="divider"></li>
+<li><a href="#">Separated link</a></li>
 </ul> -->
-</li>
-<li>
-    <span class="hi-icon-effect-1 hi-icon-effect-1a">
-        <span id="cart" class="hi-icon hi-icon-cart "><span class="cart-items-notification <?php echo $cart_class; ?>"><?php echo $cart_count; ?></span></span>
-    </span>
-</li>
-</ul>
-</section><!-- /.navbar-collapse -->
-</section><!-- /.container-fluid -->
-</section>
-
-<main class="teez Expand">
-    <div class="container">
-        <!-- BERADCRUMB -->
-        <section class="row">
-            <section class="col-md-12 tee-tabs-top">
-                <ol class="breadcrumb">
-                    <li><a href="<?php echo site_url() . '/shop' ?>"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
-                    <li><a href="<?php echo site_url() . '/shop' ?>">Shop</a></li>
-                    <li class="active">Cart</li>
-                </ol>
-                <span><h3>Shopping Cart</h3></span>
-            </section>
+                        </li>
+                        <li>
+                            <span class="hi-icon-effect-1 hi-icon-effect-1a">
+                                <span id="cart" class="hi-icon hi-icon-cart "><span class="cart-items-notification <?php echo $cart_class; ?>"><?php echo $cart_count; ?></span></span>
+                            </span>
+                        </li>
+                    </ul>
+                </section><!-- /.navbar-collapse -->
+            </section><!-- /.container-fluid -->
         </section>
-        <!-- BREADCRUMB END -->
 
-        <!-- SHOPPING WIZARD -->
-        <div class="row form-group wizard">
-            <div class="col-xs-12">
-                <div class="wizard-connecter"></div>
-                <ul class="wizard-pills setup-panel">
-                    <div class="col-md-4 text-center">
-                        <li class="active">
-                            <a href="#step-1">
-                                <i class="fa fa-history"></i>
-                            </a>
-                        </li>
-                    </div>
-                    <div class="col-md-4 text-center">
-                        <li class="disabled">
-                            <a href="#step-2">
-                                <i class="fa fa-user"></i>
-                            </a>
-                        </li>
-                    </div>
-                    <div class="col-md-4 text-center">
-                        <li class="disabled">
-                            <a href="#step-3">
-                                <i class="fa fa-credit-card"></i>
-                            </a>
-                        </li>
-                    </div>
-                </ul>
+    <main class="teez Expand">
+        <div class="container">
+            <!-- BERADCRUMB -->
+            <section class="row">
+                <section class="col-md-12 tee-tabs-top">
+                    <ol class="breadcrumb">
+                        <li><a href="<?php echo site_url() . '/shop' ?>"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
+                        <li><a href="<?php echo site_url() . '/shop' ?>">Shop</a></li>
+                        <li class="active">Cart</li>
+                    </ol>
+                    <span><h3>Shopping Cart</h3></span>
+                </section>
+            </section>
+            <!-- BREADCRUMB END -->
+
+            <!-- SHOPPING WIZARD -->
+            <div class="row form-group wizard">
+                <div class="col-xs-12">
+                    <div class="wizard-connecter"></div>
+                    <ul class="wizard-pills setup-panel">
+                        <div class="col-md-4 text-center">
+                            <li class="active">
+                                <a href="#step-1">
+                                    <i class="fa fa-history"></i>
+                                </a>
+                            </li>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <li class="disabled">
+                                <a href="#step-2">
+                                    <i class="fa fa-user"></i>
+                                </a>
+                            </li>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <li class="disabled">
+                                <a href="#step-3">
+                                    <i class="fa fa-credit-card"></i>
+                                </a>
+                            </li>
+                        </div>
+                    </ul>
+                </div>
             </div>
-        </div>
-        <div class="row setup-content" id="step-1">
-            <div class="col-xs-12">
-                <h4 class="wizard-heading">Purchased History</h4>
-                <table id="cart" class="table table-hover table-condensed">
-                    <thead>
-                        <tr>
-                            <th style="width:50%">Product</th>
-                            <th style="width:10%">Price</th>
-                            <th style="width:8%">Quantity</th>
-                            <th style="width:22%" class="text-center">Subtotal</th>
-                            <th style="width:10%"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        $tot = 0;
-
-                        if($items){
-                            foreach ($items as $its) {
-                                $tot += ($its['ItemPrice'] * $its['Qty']);
-                                ?>
-                                <tr id="cr_<?php echo $its['CartItemID'];?>">
-                                    <td data-th = "Product">
-                                        <div class = "row">
-                                            <div class = "col-sm-2 hidden-xs"><img src = "<?php echo  base_url().'/uploads/'.$its['ItemImg']; ?>" alt = "..." class = "img-responsive"/></div>
-                                            <div class = "col-sm-10">
-                                                <h4 class = "nomargin"><?php echo  $its['ItemName'] ?></h4>
-                                                <?php echo $its['ItemDes'] ?>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td data-th = "Price">Rs. <?php echo  $its['ItemPrice']; ?></td>
-                                    <td data-th = "Quantity">
-                                        <input type = "number" class = "form-control text-center" value="<?php echo  $its['Qty']; ?>" onchange="updateQty(this,'<?php echo $its['CartItemID'];?>')">
-                                    </td>
-                                    <td data-th = "Subtotal">Rs. <?php echo $its['ItemPrice'] * $its['Qty'];?></td>
-                                    <td class = "actions text-center" data-th = "">
-                                        <button class = "btn btn-danger btn-sm square-btn-small" onclick="deleteItems(<?php echo $its['CartItemID'];?>)"><i class = "fa fa-trash-o"></i></button>
-                                    </td>
-                                </tr>
-                                <?php
-                            }
-                        } else{
-                            ?>
+            <div class="row setup-content" id="step-1">
+                <div class="col-xs-12">
+                    <h4 class="wizard-heading">Purchased History</h4>
+                    <table id="cart" class="table table-hover table-condensed">
+                        <thead>
                             <tr>
-                                <td colspan="4">Cart is empty</td>
+                                <th style="width:50%">Product</th>
+                                <th style="width:10%">Price</th>
+                                <th style="width:8%">Quantity</th>
+                                <th style="width:22%" class="text-center">Subtotal</th>
+                                <th style="width:10%"></th>
                             </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $tot = 0;
+
+                            if ($items) {
+                                foreach ($items as $its) {
+                                    $tot += ($its['ItemPrice'] * $its['Qty']);
+                                    ?>
+                                    <tr id="cr_<?php echo $its['CartItemID']; ?>">
+                                        <td data-th = "Product">
+                                            <div class = "row">
+                                                <div class = "col-sm-2 hidden-xs"><img src = "<?php echo base_url() . '/uploads/' . $its['ItemImg']; ?>" alt = "..." class = "img-responsive"/></div>
+                                                <div class = "col-sm-10">
+                                                    <h4 class = "nomargin"><?php echo $its['ItemName'] ?></h4>
+                                                    <?php echo $its['ItemDes'] ?>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td data-th = "Price">Rs. <?php echo $its['ItemPrice']; ?></td>
+                                        <td data-th = "Quantity">
+                                            <input type = "number" class = "form-control text-center" value="<?php echo $its['Qty']; ?>" onchange="updateQty(this, '<?php echo $its['CartItemID']; ?>')">
+                                        </td>
+                                        <td data-th = "Subtotal">Rs. <?php echo $its['ItemPrice'] * $its['Qty']; ?></td>
+                                        <td class = "actions text-center" data-th = "">
+                                            <button class = "btn btn-danger btn-sm square-btn-small" onclick="deleteItems(<?php echo $its['CartItemID']; ?>)"><i class = "fa fa-trash-o"></i></button>
+                                        </td>
+                                    </tr>
+                                    <?php
+                                }
+                            } else {
+                                ?>
+                                <tr>
+                                    <td colspan="4">Cart is empty</td>
+                                </tr>
                             <?php } ?>
                         </tbody>
                         <tfoot>
                             <tr class="visible-xs">
-                                <td class="text-center"><strong>Total <?php echo $tot;?></strong></td>
+                                <td class="text-center"><strong>Total <?php echo $tot; ?></strong></td>
                             </tr>
                             <tr>
                                 <td><a href="<?php echo site_url() . '/shop' ?>"><button class="square-btn pull-left"><i class="fa fa-angle-left"></i> &nbsp Shop More</button></a></td>
                                 <td colspan="2" class="hidden-xs"></td>
-                                <td class="hidden-xs text-center"><h4>Total Rs. <?php echo $tot;?></h4></td>
-                                <td><a href="#"><button id="activate-step-2" class="square-btn pull-right">Checkout  &nbsp <i class="fa fa-angle-right"></i></button></a></td>
+                                <td class="hidden-xs text-center"><h4>Total Rs. <?php echo $tot; ?></h4></td>
+
+                                <td>
+                                    <?php if ($items) { ?>
+                                        <a href="#"><button id="activate-step-2"  class="square-btn pull-right">Checkout  &nbsp <i class="fa fa-angle-right"></i></button></a>
+                                    <?php } ?>
+                                </td>
+
                             </tr>
                         </tfoot>
                     </table>
@@ -375,7 +381,7 @@
                 </div>
             </div>
         </div>
-        <input type="hidden" name="session_user_id" id="session_user_id" value="<?php echo $this->session->userdata("user_id");?>"/>
+        <input type="hidden" name="session_user_id" id="session_user_id" value="<?php echo $this->session->userdata("user_id"); ?>"/>
     </main>
 
     <footer class="teez">
@@ -403,8 +409,8 @@
         </div>
     </footer>
     <script type="text/javascript">
-    var base_url = "<?php echo base_url(); ?>";
-    var site_url = "<?php echo site_url(); ?>";
+                                        var base_url = "<?php echo base_url(); ?>";
+                                        var site_url = "<?php echo site_url(); ?>";
 
     </script>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -423,56 +429,56 @@
     <script src="<?php echo base_url("js/jquery.validate.min.js"); ?>"></script>
 
     <script type="text/javascript">
-    $(document).ready(function ($) {
-        //form validation
-        $("#details-confirmation").validate({
-            rules: {
-                FirstName: "required",
-                LastName: "required",
-                Address: "required",
-                City: "required",
-                cb6: "required"
-            }
-        });
-    });
-
-    function deleteItems(item_id){
-        if($('#session_user_id').val() != ""){
-            swal({
-                title: "Are you sure?",
-                text: "You want to delete this Item?",
-                type: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#1abc9c",
-                confirmButtonText: "Yes, delete it!",
-                closeOnConfirm: false
-            },
-            function () {
-                $.post(site_url+'/cart/deleteItem',{ item_id : item_id}, function (msg) {
-                    swal("Deleted!", "Your item has been deleted.", "success");
-                    if (msg != '') {
-                        $('#cr_'+item_id).hide();
-                        $('.cart-items-notification').html(msg);
-                    } else {
-                        $('#cr_'+item_id).hide();
-                        $('.cart-items-notification').removeClass('cart-items-notification-active');
-                    }
-                });
+        $(document).ready(function($) {
+            //form validation
+            $("#details-confirmation").validate({
+                rules: {
+                    FirstName: "required",
+                    LastName: "required",
+                    Address: "required",
+                    City: "required",
+                    cb6: "required"
+                }
             });
-        }else{
-            setTimeout("location.href = site_url+'/home/register';", 100);
-        }
-    }
-
-    function updateQty(element , item_id){
-        $.post(site_url+'/cart/updateItemQty',{ item_id : item_id, qty : $(element).val()}, function (msg) {
-            if (msg != '') {
-                $('.cart-items-notification').html(msg);
-            } else {
-                toastr.error("Error Occurred !!", "Jäger");
-            }
         });
-    }
+
+        function deleteItems(item_id) {
+            if ($('#session_user_id').val() != "") {
+                swal({
+                    title: "Are you sure?",
+                    text: "You want to delete this Item?",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#1abc9c",
+                    confirmButtonText: "Yes, delete it!",
+                    closeOnConfirm: false
+                },
+                function() {
+                    $.post(site_url + '/cart/deleteItem', {item_id: item_id}, function(msg) {
+                        swal("Deleted!", "Your item has been deleted.", "success");
+                        if (msg != '') {
+                            $('#cr_' + item_id).hide();
+                            $('.cart-items-notification').html(msg);
+                        } else {
+                            $('#cr_' + item_id).hide();
+                            $('.cart-items-notification').removeClass('cart-items-notification-active');
+                        }
+                    });
+                });
+            } else {
+                setTimeout("location.href = site_url+'/home/register';", 100);
+            }
+        }
+
+        function updateQty(element, item_id) {
+            $.post(site_url + '/cart/updateItemQty', {item_id: item_id, qty: $(element).val()}, function(msg) {
+                if (msg != '') {
+                    $('.cart-items-notification').html(msg);
+                } else {
+                    toastr.error("Error Occurred !!", "Jäger");
+                }
+            });
+        }
     </script>
 
 
