@@ -68,6 +68,11 @@ class Shop extends CI_Controller {
             $this->load->view('register');
         }
     }
+    
+    public function orderSend(){
+        
+    }
+            
 
 }
 

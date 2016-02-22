@@ -107,7 +107,7 @@
     <section class="row">
       <section class="col-md-12 tee-tabs-top">
         <ol class="breadcrumb">
-          <li><a href="<?php echo site_url().'/home'?>"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
+          <li><a href="<?php echo site_url() . '/shop' ?>"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
           <li><a href="<?php echo site_url().'/shop'?>">Shop</a></li>
           <li class="active">Order</li>
         </ol>
