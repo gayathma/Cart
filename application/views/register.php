@@ -62,7 +62,7 @@
                             <div class="content log-box" style="display:none;">
                                 <div class="error"></div>
                                 <div class="form loginBox">
-                                    <form method="post" action="<?php echo base_url("checkLogin") ?>" accept-charset="UTF-8">
+                                    <form method="post" action="<?php echo base_url("checkLogin") ?>" accept-charset="UTF-8" id="login_form">
                                         <div class="form-group">
                                             <input id="email" class="tee-text-light form-control loginEmail" type="text" placeholder="Email" name="email">
                                         </div>
@@ -82,7 +82,7 @@
                                             <input id="email" class="form-control tee-text-light RegEmail" type="text" placeholder="Email" name="email">
                                         </div>
                                         <div class="form-group">
-                                            <input id="password" class="form-control tee-text-light RegPassword" type="password" placeholder="Password" name="password">
+                                            <input id="password_edit" class="form-control tee-text-light RegPassword" type="password" placeholder="Password" name="password">
                                         </div>
                                         <div class="form-group">
                                             <input id="password_confirmation" class="form-control tee-text-light RegPassConfirm" type="password" placeholder="Repeat Password" name="password_confirmation">
@@ -148,7 +148,7 @@
                         password_confirmation: {
                             required: true,
                             minlength: 8,
-                            equalTo: $('#password')
+                            equalTo: $('#password_edit')
                         }
                     }
                 });
