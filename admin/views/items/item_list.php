@@ -3,7 +3,7 @@
         <div>
             <header class="panel-heading" style="padding:0;margin:0;">
                 <div class="col-md-4" style="padding:0;margin:0;"><a
-                        href="<?php echo site_url(); ?>/locations/manage_locations"><i
+                        href="<?php echo site_url(); ?>/login/load_login"><i
                             class="fa fa-arrow-left"></i>Workspace</a></div>
                 <div class="col-md-4" style="text-align: CENTER;margin-bottom: 40px !important;">
 

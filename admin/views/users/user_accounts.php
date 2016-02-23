@@ -6,8 +6,7 @@
                     href="<?php echo site_url(); ?>/login/load_login"><i
                     class="fa fa-arrow-left"></i>Workspace</a></div>
 
-                    <div class="col-md-4" style="text-align: CENTER;">
-                        
+                    <div class="col-md-4" style="text-align: CENTER;margin-bottom: 40px !important;">
 
                     </div>
                     <div class="col-md-4 rl" style="padding:0;margin:0;"><i
@@ -46,9 +45,9 @@
                                             <?php if ($result->UserID == '1') { ?>
                                             <span class="label label-primary">Admin</span>
                                             <?php
-                                        } 
+                                        }
                                         ?>
-                                        
+
                                     </td>
                                     <td><?php echo $result->Email; ?></td>
                                     <td><?php echo $result->Address; ?></td>
@@ -74,7 +73,7 @@
 
     <script type="text/javascript">
     $(document).ready(function () {
-        
+
         $('#user_table').dataTable();
 
     });
@@ -111,4 +110,3 @@
         });
     }
     </script>
-
